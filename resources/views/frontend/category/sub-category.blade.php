@@ -38,7 +38,7 @@
                                     <div class="category-links-wrapper">
                                      @forelse($categories as $key => $subCategory)
                                         <a href="{{ route('front.subcategory', [
-                                            'type'=>'subcategory', 
+                                            'type'=>'childcategory', 
                                             'slug'=> $subCategory->slug 
                                         ] ) }}" class="category">
                                             <div>

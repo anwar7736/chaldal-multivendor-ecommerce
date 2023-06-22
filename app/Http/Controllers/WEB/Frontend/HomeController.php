@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Slider;
 use App\Models\Category;
 use App\Models\SubCategory;
+use App\Models\Product;
 use App\Models\ChildCategory;
 
 class HomeController extends Controller
@@ -15,14 +16,15 @@ class HomeController extends Controller
     {   
         $slider = Slider::select(['id', 'title_one', 'title_two', 'image'])->skip(1)->first();
 
-        $categories = Category::select(['id', 'name', 'slug', 'image'])->take(9)->get();
 
-        return view('frontend.home.index', compact('slider', 'categories'));
+        $feateuredCategories = featuredCategories();
+
+        return view('frontend.home.index', compact('slider', 'feateuredCategories'));
     }
 
     public function subCategoriesByCategory(Request $request)
     {
-        if($request->type == 'category')
+        if($request->type == 'subcategory')
         {
             $id = Category::whereSlug($request->slug)->first()->id;
             $categories = SubCategory::where(['category_id' => $id])->get();
@@ -33,7 +35,7 @@ class HomeController extends Controller
             
             return view('frontend.category.sub-category', compact('categories'));
         }        
-        else if($request->type == 'subcategory')
+        else if($request->type == 'childcategory')
         {
             $id = SubCategory::whereSlug($request->slug)->first()->id;
             $categories = ChildCategory::where(['sub_category_id' => $id])->get();
@@ -42,7 +44,7 @@ class HomeController extends Controller
                 return redirect()->route('front.shop', ['slug'=> $request->slug ] );
             }   
 
-            return view('frontend.category.sub-category2', compact('categories'));
+            return view('frontend.category.child-category', compact('categories'));
         }
 
     }
@@ -50,22 +52,35 @@ class HomeController extends Controller
     public function shop(Request $request)
     {
         $data = [];
+
         if(empty($data))
         {
-            $data = Category::whereSlug($request->slug)->first();
+            $data = Category::with('products')->whereSlug($request->slug)->first();
         }  
 
         if(empty($data))
         {
-            $data = SubCategory::whereSlug($request->slug)->first();
+            $data = SubCategory::with('products')->whereSlug($request->slug)->first();
         }        
         
         if(empty($data))
         {
-            $data = ChildCategory::whereSlug($request->slug)->first();
+            $data = ChildCategory::with('products')->whereSlug($request->slug)->first();
         }
 
-        $products = $data->products;
+        if(empty($request->slug))
+        {
+            $products = Product::with(['category', 'subCategory', 'childCategory'])->take(30)->get();
+        }
+
+        else if($data){
+            $products = $data->products;
+        }
+        
+        else{
+            $products = [];
+        }
+        
 
         return view('frontend.shop.index', compact('products'));
     }

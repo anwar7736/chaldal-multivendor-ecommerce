@@ -1,3 +1,4 @@
+
 <aside class="open">
         <div class="overlay-wrapper">
             <div class="sidebar-overlay"></div>
@@ -26,14 +27,18 @@
                             <ul class="misc-menu">
                                 <li class="unselected">
                                     <div class="name">
-                                        <a href="#">
+                                        <a href="{{ route('front.shop', [
+                                                    'slug'=> 'coupons' 
+                                                ] ) }}">
                                             <span>Coupons</span>
                                         </a>
                                     </div>
                                 </li>
                                 <li class="selected">
                                     <div class="name">
-                                        <a href="#">
+                                        <a href="{{ route('front.shop', [
+                                                    'slug'=> 'offers' 
+                                                ] ) }}">
                                             <span>Offers</span>
                                             <span class="nav-count-label">
                                                 <span>64</span>
@@ -43,14 +48,18 @@
                                 </li>
                                 <li class="unselected">
                                     <div class="name">
-                                        <a href="#">
+                                        <a href="{{ route('front.shop', [
+                                                    'slug'=> 'egg-club' 
+                                                ] ) }}">
                                             <span>Egg Club</span>
                                         </a>
                                     </div>
                                 </li>
                                 <li class="unselected dailyDeals">
                                     <div class="name">
-                                        <a href="#">
+                                        <a href="{{ route('front.shop', [
+                                                'slug'=> 'daily-deals' 
+                                            ] ) }}">
                                             <span>Daily Deals</span>
                                             <img src="{{ asset('frontend/images/others/DailyDeal.gif') }}" alt="" class="menu-img">
                                         </a>
@@ -61,7 +70,9 @@
                                 <li class="unselected topLevel">
                                     <img src="{{ asset('frontend/images/svg/love.svg') }}" alt="icon" class="MenuItemIcons">
                                     <div class="name">
-                                        <a href="#">Favorites</a>
+                                        <a href="{{ route('front.shop', [
+                                                    'slug'=> 'favorites' 
+                                                ] ) }}">Favorites</a>
                                     </div>
                                 </li>
                             </ul>
@@ -69,143 +80,97 @@
                                 <li class="unselected topLevel">
                                     <img src="{{ asset('frontend/images/others/popular.webp') }}" alt="icon" class="MenuItemIcons">
                                     <div class="name">
-                                        <a href="#">Popular</a>
+                                        <a href="{{ route('front.shop', [
+                                                    'slug'=> 'popular' 
+                                                ] ) }}">Popular</a>
                                     </div>
                                 </li>
                                 <li class="unselected topLevel">
                                     <img src="{{ asset('frontend/images/others/flash-sales.webp') }}" alt="icon" class="MenuItemIcons">
                                     <div class="name">
-                                        <a href="#">Flash Sell</a>
+                                        <a href="{{ route('front.shop', [
+                                                    'slug'=> 'flash-sell' 
+                                                ] ) }}">Flash Sell</a>
                                     </div>
                                 </li>
+                                @forelse(popularCategories() as $key => $item)
                                 <li class="unselected topLevel">
-                                    <img src="{{ asset('frontend/images/others/food.webp') }}" alt="icon" class="MenuItemIcons">
+                                    <img src="{{ asset($item->category->image) }}" alt="icon" class="MenuItemIcons">
                                     <div class="name level">
-                                        <a href="#"><span>Food</span>
-                                            <i class="fas fa-angle-right"></i>
+                                        <a href="{{ $item->category->subCategories->count() <= 0 ? route('front.shop', [
+                                            'slug'=> $item->category->slug 
+                                        ] ) : '#'}}"><span>{{ $item->category->name }}</span>
+                                            @if($item->category->subCategories->count())
+                                                <i class="fas fa-angle-right"></i>
+                                            @endif
                                         </a>
                                     </div>
+                                    @if($item->category->subCategories->count())
                                     <ul class="level-1 hasSelection">
+                                        @foreach($item->category->subCategories as $key => $item)
                                         <li class="unselected level">
                                             <div class="name">
-                                                <a href="#">
-                                                    <span>Fruit & Vegetables</span>
-                                                    <i class="fas fa-angle-right"></i>
+                                                <a href="{{ $item->childCategories->count() <= 0 ? route('front.subcategory', [
+                                            'type'=>'childcategory', 
+                                            'slug'=> $item->slug 
+                                        ] ) : '#'}}">
+                                                    <span>{{ $item->name }}</span>
+                                                    @if($item->childCategories->count())
+                                                        <i class="fas fa-angle-right"></i>
+                                                    @endif
                                                 </a>
                                             </div>
+                                            @if($item->childCategories->count())
                                             <ul class="">
+                                                @foreach($item->childCategories as $key => $item)
                                                 <li class="unselected level">
                                                     <div class="name">
-                                                        <a href="#">
-                                                            <span>Fresh Vegetables</span>
+                                                        <a href="{{ route('front.shop', [
+                                                                'slug'=> $item->slug 
+                                                            ] ) }}">
+                                                            <span>{{ $item->name }}</span>
                                                         </a>
                                                     </div>
                                                 </li>
-                                                <li class="selected level">
-                                                    <div class="name">
-                                                        <a href="#">
-                                                            <span>Fresh Fruit</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
+                                                @endforeach
                                             </ul>
+                                            @endif
                                         </li>
-                                        <li class="unselected">
-                                            <div class="name">
-                                                <a href="#">
-                                                    <span>Fruit & Vegetables</span>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li class="unselected">
-                                            <div class="name">
-                                                <a href="#">
-                                                    <span>Fruit & Vegetables</span>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li class="unselected">
-                                            <div class="name">
-                                                <a href="#">
-                                                    <span>Fruit & Vegetables</span>
-                                                </a>
-                                            </div>
-                                        </li>
+                                        @endforeach
                                     </ul>
+                                    @endif
                                 </li>
-                                <li class="unselected topLevel">
-                                    <img src="{{ asset('frontend/images/others/food.webp') }}" alt="icon" class="MenuItemIcons">
-                                    <div class="name level">
-                                        <a href="#"><span>Food</span>
-                                            <i class="fas fa-angle-right"></i>
-                                        </a>
-                                    </div>
-                                    <ul class="level-1 hasSelection">
-                                        <li class="unselected level">
-                                            <div class="name">
-                                                <a href="#">
-                                                    <span>Fruit & Vegetables</span>
-                                                    <i class="fas fa-angle-right"></i>
-                                                </a>
-                                            </div>
-                                            <ul class="">
-                                                <li class="unselected level">
-                                                    <div class="name">
-                                                        <a href="">
-                                                            <span>Fresh Vegetables</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                                <li class="selected level">
-                                                    <div class="name">
-                                                        <a href="">
-                                                            <span>Fresh Fruit</span>
-                                                        </a>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="unselected">
-                                            <div class="name">
-                                                <a href="">
-                                                    <span>Fruit & Vegetables</span>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li class="unselected">
-                                            <div class="name">
-                                                <a href="">
-                                                    <span>Fruit & Vegetables</span>
-                                                </a>
-                                            </div>
-                                        </li>
-                                        <li class="unselected">
-                                            <div class="name">
-                                                <a href="">
-                                                    <span>Fruit & Vegetables</span>
-                                                </a>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </li>
+                                @empty
+                                <div>
+                                    <strong class="text-center text-danger">
+                                        No 
+                                    </strong>
+                                </div>
+                                @endforelse
                             </ul>
                             <ul class="bottom-misc-menu">
                                 <li class="unselected topLevel">
                                     <img src="{{ asset('frontend/images/others/food.webp') }}" alt="icon" class="MenuItemIcons">
                                     <div class="name">
-                                        <a href="">Premium Care</a>
+                                        <a href="{{ route('front.shop', [
+                                                    'slug'=> 'premium-care' 
+                                                ] ) }}">Premium Care</a>
                                     </div>
                                 </li>
                                 <li class="unselected topLevel">
                                     <img src="{{ asset('frontend/images/others/food.webp') }}" alt="icon" class="MenuItemIcons">
                                     <div class="name">
-                                        <a href="">Food Aid</a>
+                                        <a href="{{ route('front.shop', [
+                                                    'slug'=> 'food-aid' 
+                                                ] ) }}">Food Aid</a>
                                     </div>
                                 </li>
                                 <li class="unselected topLevel">
                                     <img src="{{ asset('frontend/images/others/food.webp') }}" alt="icon" class="MenuItemIcons">
                                     <div class="name">
-                                        <a href="">Recipes</a>
+                                        <a href="{{ route('front.shop', [
+                                                    'slug'=> 'recipes' 
+                                                ] ) }}">Recipes</a>
                                     </div>
                                 </li>
                             </ul>

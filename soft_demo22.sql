@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jun 21, 2023 at 07:38 AM
--- Server version: 10.6.11-MariaDB-0ubuntu0.22.04.1
--- PHP Version: 7.4.30
+-- Host: 127.0.0.1
+-- Generation Time: Jun 22, 2023 at 03:05 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,21 +29,21 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `about_us` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `about_us` longtext NOT NULL,
-  `banner_image` varchar(255) NOT NULL,
-  `video_background` varchar(250) DEFAULT NULL,
-  `image_two` varchar(255) DEFAULT NULL,
+  `about_us` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `banner_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video_background` varchar(250) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` tinyint(4) DEFAULT NULL,
-  `icon_one` varchar(255) DEFAULT NULL,
-  `title_one` varchar(255) DEFAULT NULL,
-  `description_one` text DEFAULT NULL,
-  `icon_two` varchar(255) DEFAULT NULL,
-  `title_two` varchar(255) DEFAULT NULL,
-  `description_two` text DEFAULT NULL,
-  `icon_three` varchar(255) DEFAULT NULL,
-  `title_three` varchar(255) DEFAULT NULL,
-  `description_three` text DEFAULT NULL,
-  `video_id` varchar(255) DEFAULT NULL,
+  `icon_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_one` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_two` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon_three` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_three` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description_three` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `video_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -64,14 +64,14 @@ INSERT INTO `about_us` (`id`, `about_us`, `banner_image`, `video_background`, `i
 CREATE TABLE `addresses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `country_id` int(11) NOT NULL DEFAULT 0,
   `state_id` int(11) NOT NULL DEFAULT 0,
   `city_id` int(11) NOT NULL DEFAULT 0,
-  `address` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `default_shipping` int(11) NOT NULL DEFAULT 0,
   `default_billing` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -111,14 +111,14 @@ INSERT INTO `addresses` (`id`, `user_id`, `name`, `email`, `phone`, `country_id`
 CREATE TABLE `admins` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `admin_type` int(10) NOT NULL DEFAULT 0,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `image` varchar(191) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) NOT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(10) NOT NULL DEFAULT 1,
-  `forget_password_token` varchar(191) DEFAULT NULL,
+  `forget_password_token` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -128,7 +128,7 @@ CREATE TABLE `admins` (
 --
 
 INSERT INTO `admins` (`id`, `admin_type`, `name`, `email`, `image`, `email_verified_at`, `password`, `remember_token`, `status`, `forget_password_token`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Soft it global', 'admin@gmail.com', 'uploads/website-images/ibrahim-khalil-2022-01-30-02-48-50-5743.jpg', NULL, '$2y$10$Gtc/CuE9RTk0HaCVeXyrGeEC/cFW9WXc9tc/EX2PwhRGAn3H9L59S', '78zM96zNKfBI61eBaaiuy41afX00d2qgJeN42muqbTkiQbVx5CgHkS6UbTWv', 1, '817805', NULL, '2023-06-14 15:28:16');
+(1, 1, 'Soft it global', 'admin@gmail.com', 'uploads/website-images/ibrahim-khalil-2022-01-30-02-48-50-5743.jpg', NULL, '$2y$10$Gtc/CuE9RTk0HaCVeXyrGeEC/cFW9WXc9tc/EX2PwhRGAn3H9L59S', 'CUKalc3QaMWd7GoQMH0PZ0gJgGz8pUugBPjQHBYIoP2DiNzpgrI7XToa0ZTj', 1, '817805', NULL, '2023-06-14 15:28:16');
 
 -- --------------------------------------------------------
 
@@ -139,9 +139,9 @@ INSERT INTO `admins` (`id`, `admin_type`, `name`, `email`, `image`, `email_verif
 CREATE TABLE `announcement_modals` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `title` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `expired_date` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -163,7 +163,7 @@ INSERT INTO `announcement_modals` (`id`, `status`, `title`, `description`, `imag
 CREATE TABLE `bank_payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `account_info` text DEFAULT NULL,
+  `account_info` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cash_on_delivery_status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -184,19 +184,19 @@ INSERT INTO `bank_payments` (`id`, `status`, `account_info`, `cash_on_delivery_s
 
 CREATE TABLE `banner_images` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `header` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `link` text DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `banner_location` varchar(255) DEFAULT NULL,
+  `header` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner_location` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `after_product_qty` int(11) NOT NULL DEFAULT 0,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `title_one` varchar(255) DEFAULT NULL,
-  `title_two` varchar(255) DEFAULT NULL,
-  `badge` varchar(255) DEFAULT NULL,
-  `product_slug` text DEFAULT NULL
+  `title_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `badge` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_slug` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -229,14 +229,14 @@ INSERT INTO `banner_images` (`id`, `header`, `title`, `link`, `image`, `banner_l
 CREATE TABLE `blogs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `admin_id` int(11) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `blog_category_id` int(11) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `description` longtext NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `views` int(11) NOT NULL DEFAULT 0,
-  `seo_title` varchar(255) NOT NULL,
-  `seo_description` varchar(255) NOT NULL,
+  `seo_title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seo_description` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `show_homepage` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -263,8 +263,8 @@ INSERT INTO `blogs` (`id`, `admin_id`, `title`, `slug`, `blog_category_id`, `ima
 
 CREATE TABLE `blog_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -292,9 +292,9 @@ INSERT INTO `blog_categories` (`id`, `name`, `slug`, `status`, `created_at`, `up
 CREATE TABLE `blog_comments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `blog_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `comment` text NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(10) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -322,9 +322,9 @@ INSERT INTO `blog_comments` (`id`, `blog_id`, `name`, `email`, `comment`, `statu
 
 CREATE TABLE `brands` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
-  `logo` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -356,9 +356,9 @@ INSERT INTO `brands` (`id`, `name`, `slug`, `logo`, `status`, `created_at`, `upd
 
 CREATE TABLE `breadcrumb_images` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `location` varchar(255) DEFAULT NULL,
+  `location` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `image_type` int(11) NOT NULL DEFAULT 1,
-  `image` varchar(255) DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -388,10 +388,10 @@ INSERT INTO `breadcrumb_images` (`id`, `location`, `image_type`, `image`, `creat
 
 CREATE TABLE `categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
-  `icon` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -402,7 +402,7 @@ CREATE TABLE `categories` (
 --
 
 INSERT INTO `categories` (`id`, `name`, `slug`, `icon`, `image`, `status`, `created_at`, `updated_at`) VALUES
-(1, 'Dresses', 'dresses', 'fa-solid fa-vest', 'uploads/custom-images/category-2022-12-11-11-28-15-8740.png', 1, '2022-09-20 05:16:25', '2023-03-22 07:53:15'),
+(1, 'Dresses', 'dresses', 'fa-solid fa-vest', 'uploads/custom-images/category-2022-12-11-11-28-15-8740.png', 1, '2022-09-20 05:16:25', '2023-06-22 06:37:37'),
 (2, 'Bags', 'bags', 'fa-solid fa-shirt', 'uploads/custom-images/category-2022-12-11-11-28-22-3436.png', 1, '2022-09-20 05:16:50', '2023-03-22 07:58:32'),
 (3, 'Sweatshirt', 'sweatshirt', 'fas fa-mobile-alt', 'uploads/custom-images/category-2022-12-11-11-28-30-3579.png', 1, '2022-09-20 05:17:43', '2023-03-22 07:03:40'),
 (4, 'Boots', 'boots', 'fas fa-home', 'uploads/custom-images/category-2022-12-11-11-28-38-3257.png', 1, '2022-09-20 05:24:47', '2023-03-22 07:03:47'),
@@ -424,8 +424,8 @@ CREATE TABLE `child_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_id` int(10) NOT NULL,
   `sub_category_id` int(10) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -452,8 +452,8 @@ INSERT INTO `child_categories` (`id`, `category_id`, `sub_category_id`, `name`, 
 CREATE TABLE `cities` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `country_state_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -509,11 +509,11 @@ INSERT INTO `compare_products` (`id`, `user_id`, `product_id`, `created_at`, `up
 
 CREATE TABLE `contact_messages` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `subject` varchar(255) NOT NULL,
-  `message` text NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -526,12 +526,12 @@ CREATE TABLE `contact_messages` (
 
 CREATE TABLE `contact_pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) DEFAULT NULL,
-  `description` text DEFAULT NULL,
-  `email` text DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `phone` text DEFAULT NULL,
-  `map` text DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `map` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -552,17 +552,17 @@ INSERT INTO `contact_pages` (`id`, `title`, `description`, `email`, `address`, `
 CREATE TABLE `cookie_consents` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
-  `border` varchar(255) DEFAULT NULL,
-  `corners` varchar(255) DEFAULT NULL,
-  `background_color` varchar(255) DEFAULT NULL,
-  `text_color` varchar(255) DEFAULT NULL,
-  `border_color` varchar(255) DEFAULT NULL,
-  `btn_bg_color` varchar(255) DEFAULT NULL,
-  `btn_text_color` varchar(255) DEFAULT NULL,
-  `message` text DEFAULT NULL,
-  `link_text` varchar(255) DEFAULT NULL,
-  `btn_text` varchar(255) DEFAULT NULL,
-  `link` varchar(255) DEFAULT NULL,
+  `border` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `corners` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `background_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `text_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `border_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_bg_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_text_color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `btn_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -582,8 +582,8 @@ INSERT INTO `cookie_consents` (`id`, `status`, `border`, `corners`, `background_
 
 CREATE TABLE `countries` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -609,8 +609,8 @@ INSERT INTO `countries` (`id`, `name`, `slug`, `status`, `created_at`, `updated_
 CREATE TABLE `country_states` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `country_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -639,13 +639,13 @@ INSERT INTO `country_states` (`id`, `country_id`, `name`, `slug`, `status`, `cre
 
 CREATE TABLE `coupons` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(255) NOT NULL,
-  `min_purchase_price` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `min_purchase_price` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `offer_type` int(11) NOT NULL DEFAULT 0,
   `discount` double NOT NULL DEFAULT 0,
   `max_quantity` int(11) NOT NULL DEFAULT 0,
-  `expired_date` varchar(191) NOT NULL,
+  `expired_date` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `apply_qty` int(11) NOT NULL DEFAULT 0,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -671,7 +671,7 @@ CREATE TABLE `currencies` (
   `name` varchar(50) NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `currencies`
@@ -851,11 +851,11 @@ INSERT INTO `currencies` (`id`, `code`, `name`, `created_at`, `updated_at`) VALU
 
 CREATE TABLE `currency_countries` (
   `id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `code` varchar(2) NOT NULL,
+  `name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `code` varchar(2) COLLATE utf8_bin NOT NULL,
   `created_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
 -- Dumping data for table `currency_countries`
@@ -1120,9 +1120,9 @@ INSERT INTO `currency_countries` (`id`, `name`, `code`, `created_at`, `updated_a
 
 CREATE TABLE `custom_pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `page_name` longtext NOT NULL,
-  `slug` varchar(191) NOT NULL,
-  `description` longtext NOT NULL,
+  `page_name` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1144,7 +1144,7 @@ INSERT INTO `custom_pages` (`id`, `page_name`, `slug`, `description`, `status`, 
 
 CREATE TABLE `custom_paginations` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `page_name` varchar(255) NOT NULL,
+  `page_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `qty` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1171,12 +1171,12 @@ INSERT INTO `custom_paginations` (`id`, `page_name`, `qty`, `created_at`, `updat
 CREATE TABLE `email_configurations` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `mail_type` tinyint(4) DEFAULT NULL,
-  `mail_host` varchar(255) DEFAULT NULL,
-  `mail_port` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `smtp_username` varchar(255) DEFAULT NULL,
-  `smtp_password` varchar(255) DEFAULT NULL,
-  `mail_encryption` varchar(255) DEFAULT NULL,
+  `mail_host` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_port` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `smtp_username` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `smtp_password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `mail_encryption` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1196,9 +1196,9 @@ INSERT INTO `email_configurations` (`id`, `mail_type`, `mail_host`, `mail_port`,
 
 CREATE TABLE `email_templates` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` text DEFAULT NULL,
-  `subject` text DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1224,10 +1224,10 @@ INSERT INTO `email_templates` (`id`, `name`, `subject`, `description`, `created_
 
 CREATE TABLE `error_pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `page_name` varchar(255) NOT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `header` varchar(255) NOT NULL,
-  `button_text` varchar(255) NOT NULL,
+  `page_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `header` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `button_text` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1249,7 +1249,7 @@ INSERT INTO `error_pages` (`id`, `page_name`, `image`, `header`, `button_text`, 
 
 CREATE TABLE `facebook_comments` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `app_id` varchar(255) DEFAULT NULL,
+  `app_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `comment_type` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1271,7 +1271,7 @@ INSERT INTO `facebook_comments` (`id`, `app_id`, `comment_type`, `created_at`, `
 CREATE TABLE `facebook_pixels` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `app_id` varchar(255) DEFAULT NULL,
+  `app_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1291,11 +1291,11 @@ INSERT INTO `facebook_pixels` (`id`, `status`, `app_id`, `created_at`, `updated_
 
 CREATE TABLE `failed_jobs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `uuid` varchar(255) NOT NULL,
-  `connection` text NOT NULL,
-  `queue` text NOT NULL,
-  `payload` longtext NOT NULL,
-  `exception` longtext NOT NULL,
+  `uuid` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `connection` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `queue` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `payload` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `exception` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `failed_at` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1307,8 +1307,8 @@ CREATE TABLE `failed_jobs` (
 
 CREATE TABLE `faqs` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `question` varchar(255) DEFAULT NULL,
-  `answer` text DEFAULT NULL,
+  `question` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `answer` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1344,7 +1344,11 @@ CREATE TABLE `featured_categories` (
 
 INSERT INTO `featured_categories` (`id`, `category_id`, `created_at`, `updated_at`) VALUES
 (1, 10, '2022-09-21 08:43:30', '2022-09-21 08:43:30'),
-(2, 4, '2022-09-21 08:43:37', '2022-09-21 08:43:37');
+(2, 4, '2022-09-21 08:43:37', '2022-09-21 08:43:37'),
+(3, 7, '2023-06-22 06:45:35', '2023-06-22 06:45:35'),
+(4, 1, '2023-06-22 06:45:49', '2023-06-22 06:45:49'),
+(5, 2, '2023-06-22 06:45:55', '2023-06-22 06:45:55'),
+(6, 3, '2023-06-22 06:46:03', '2023-06-22 06:46:03');
 
 -- --------------------------------------------------------
 
@@ -1354,10 +1358,10 @@ INSERT INTO `featured_categories` (`id`, `category_id`, `created_at`, `updated_a
 
 CREATE TABLE `flash_sales` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
-  `homepage_image` varchar(255) NOT NULL,
-  `flashsale_page_image` varchar(255) NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `homepage_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `flashsale_page_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `end_time` datetime NOT NULL,
   `offer` double NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
@@ -1407,13 +1411,13 @@ INSERT INTO `flash_sale_products` (`id`, `product_id`, `status`, `created_at`, `
 
 CREATE TABLE `flutterwaves` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `public_key` text NOT NULL,
-  `secret_key` text NOT NULL,
+  `public_key` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `secret_key` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `currency_rate` double NOT NULL DEFAULT 1,
-  `country_code` varchar(191) NOT NULL,
-  `currency_code` varchar(191) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `logo` varchar(255) NOT NULL,
+  `country_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1434,14 +1438,14 @@ INSERT INTO `flutterwaves` (`id`, `public_key`, `secret_key`, `currency_rate`, `
 
 CREATE TABLE `footers` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `first_column` varchar(255) DEFAULT NULL,
-  `second_column` varchar(255) DEFAULT NULL,
-  `third_column` varchar(255) DEFAULT NULL,
-  `copyright` varchar(191) DEFAULT NULL,
-  `background_image` varchar(191) DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `first_column` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `second_column` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `third_column` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `copyright` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `background_image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1461,9 +1465,9 @@ INSERT INTO `footers` (`id`, `phone`, `email`, `address`, `first_column`, `secon
 
 CREATE TABLE `footer_links` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `column` varchar(255) DEFAULT NULL,
-  `link` varchar(255) DEFAULT NULL,
-  `title` varchar(255) DEFAULT NULL,
+  `column` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1494,8 +1498,8 @@ INSERT INTO `footer_links` (`id`, `column`, `link`, `title`, `created_at`, `upda
 
 CREATE TABLE `footer_social_links` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `link` varchar(255) DEFAULT NULL,
-  `icon` varchar(255) DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1517,7 +1521,7 @@ INSERT INTO `footer_social_links` (`id`, `link`, `icon`, `created_at`, `updated_
 
 CREATE TABLE `google_analytics` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `analytic_id` varchar(255) DEFAULT NULL,
+  `analytic_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1538,8 +1542,8 @@ INSERT INTO `google_analytics` (`id`, `analytic_id`, `status`, `created_at`, `up
 
 CREATE TABLE `google_recaptchas` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `site_key` varchar(255) DEFAULT NULL,
-  `secret_key` varchar(255) DEFAULT NULL,
+  `site_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `secret_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1560,8 +1564,8 @@ INSERT INTO `google_recaptchas` (`id`, `site_key`, `secret_key`, `status`, `crea
 
 CREATE TABLE `home_page_one_visibilities` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `default_name` varchar(255) NOT NULL,
-  `section_name` varchar(255) DEFAULT NULL,
+  `default_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `section_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `qty` int(11) DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -1591,10 +1595,10 @@ INSERT INTO `home_page_one_visibilities` (`id`, `default_name`, `section_name`, 
 
 CREATE TABLE `instamojo_payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `api_key` text NOT NULL,
-  `auth_token` text NOT NULL,
-  `currency_rate` varchar(255) NOT NULL DEFAULT '1',
-  `account_mode` varchar(255) NOT NULL DEFAULT 'Sandbox',
+  `api_key` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `auth_token` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency_rate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '1',
+  `account_mode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Sandbox',
   `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1616,7 +1620,7 @@ INSERT INTO `instamojo_payments` (`id`, `api_key`, `auth_token`, `currency_rate`
 CREATE TABLE `inventories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` int(11) NOT NULL,
-  `stock_in` varchar(255) NOT NULL,
+  `stock_in` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1645,8 +1649,8 @@ INSERT INTO `inventories` (`id`, `product_id`, `stock_in`, `created_at`, `update
 CREATE TABLE `maintainance_texts` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `status` int(10) NOT NULL DEFAULT 0,
-  `image` varchar(255) NOT NULL,
-  `description` text DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -1721,7 +1725,7 @@ INSERT INTO `mega_menu_sub_categories` (`id`, `mega_menu_category_id`, `sub_cate
 
 CREATE TABLE `menu_visibilities` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `menu_name` varchar(255) DEFAULT NULL,
+  `menu_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -1768,7 +1772,7 @@ CREATE TABLE `messages` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `customer_id` int(11) NOT NULL,
   `seller_id` int(11) NOT NULL,
-  `message` text NOT NULL,
+  `message` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `customer_read_msg` int(11) NOT NULL DEFAULT 0,
   `seller_read_msg` int(11) NOT NULL,
   `send_customer` int(11) NOT NULL DEFAULT 0,
@@ -1785,7 +1789,7 @@ CREATE TABLE `messages` (
 
 CREATE TABLE `migrations` (
   `id` int(10) UNSIGNED NOT NULL,
-  `migration` varchar(255) NOT NULL,
+  `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `batch` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -1908,24 +1912,24 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 
 CREATE TABLE `orders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `order_id` varchar(255) NOT NULL,
+  `order_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `user_id` int(11) NOT NULL,
   `total_amount` double NOT NULL DEFAULT 0,
   `product_qty` int(11) NOT NULL,
-  `payment_method` varchar(255) DEFAULT NULL,
+  `payment_method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `payment_status` int(11) NOT NULL DEFAULT 0,
-  `payment_approval_date` varchar(255) DEFAULT NULL,
-  `transection_id` varchar(255) DEFAULT NULL,
-  `shipping_method` varchar(255) DEFAULT NULL,
+  `payment_approval_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `transection_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_method` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `shipping_cost` double NOT NULL DEFAULT 0,
   `coupon_coast` double NOT NULL DEFAULT 0,
   `order_status` int(11) NOT NULL DEFAULT 0,
-  `order_approval_date` varchar(255) DEFAULT NULL,
-  `order_delivered_date` varchar(255) DEFAULT NULL,
-  `order_completed_date` varchar(255) DEFAULT NULL,
-  `order_declined_date` varchar(255) DEFAULT NULL,
+  `order_approval_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order_delivered_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order_completed_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `order_declined_date` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `cash_on_delivery` int(10) NOT NULL DEFAULT 0,
-  `additional_info` text DEFAULT NULL,
+  `additional_info` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2008,22 +2012,22 @@ INSERT INTO `orders` (`id`, `order_id`, `user_id`, `total_amount`, `product_qty`
 CREATE TABLE `order_addresses` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_id` int(11) NOT NULL,
-  `billing_name` varchar(255) DEFAULT NULL,
-  `billing_email` varchar(255) DEFAULT NULL,
-  `billing_phone` varchar(255) DEFAULT NULL,
-  `billing_address` varchar(255) DEFAULT NULL,
-  `billing_country` varchar(11) DEFAULT NULL,
-  `billing_state` varchar(191) DEFAULT NULL,
-  `billing_city` varchar(191) DEFAULT NULL,
-  `billing_address_type` varchar(255) DEFAULT NULL,
-  `shipping_name` varchar(255) DEFAULT NULL,
-  `shipping_email` varchar(255) DEFAULT NULL,
-  `shipping_phone` varchar(255) DEFAULT NULL,
-  `shipping_address` varchar(255) DEFAULT NULL,
-  `shipping_country` varchar(191) DEFAULT NULL,
-  `shipping_state` varchar(191) DEFAULT NULL,
-  `shipping_city` varchar(191) DEFAULT NULL,
-  `shipping_address_type` varchar(255) DEFAULT NULL,
+  `billing_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billing_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billing_phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billing_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billing_country` varchar(11) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billing_state` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billing_city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `billing_address_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_country` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_state` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_city` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shipping_address_type` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2108,7 +2112,7 @@ CREATE TABLE `order_products` (
   `order_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `seller_id` int(11) NOT NULL DEFAULT 0,
-  `product_name` varchar(255) NOT NULL,
+  `product_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `unit_price` double NOT NULL DEFAULT 0,
   `qty` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -2295,8 +2299,8 @@ CREATE TABLE `order_product_variants` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `order_product_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
-  `variant_name` varchar(255) DEFAULT NULL,
-  `variant_value` varchar(255) DEFAULT NULL,
+  `variant_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `variant_value` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2324,8 +2328,8 @@ INSERT INTO `order_product_variants` (`id`, `order_product_id`, `product_id`, `v
 --
 
 CREATE TABLE `password_resets` (
-  `email` varchar(255) NOT NULL,
-  `token` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -2337,13 +2341,13 @@ CREATE TABLE `password_resets` (
 
 CREATE TABLE `paymongo_payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `secret_key` varchar(255) NOT NULL,
-  `public_key` varchar(255) NOT NULL,
+  `secret_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `public_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `currency_rate` double NOT NULL DEFAULT 1,
-  `country_code` varchar(255) DEFAULT NULL,
-  `currency_code` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
+  `country_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `currency_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2364,11 +2368,11 @@ INSERT INTO `paymongo_payments` (`id`, `secret_key`, `public_key`, `status`, `cu
 CREATE TABLE `paypal_payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `account_mode` varchar(255) DEFAULT NULL,
-  `client_id` text DEFAULT NULL,
-  `secret_id` text DEFAULT NULL,
-  `country_code` varchar(191) NOT NULL,
-  `currency_code` varchar(191) NOT NULL,
+  `account_mode` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `client_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `secret_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `country_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `currency_rate` double NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2389,17 +2393,17 @@ INSERT INTO `paypal_payments` (`id`, `status`, `account_mode`, `client_id`, `sec
 
 CREATE TABLE `paystack_and_mollies` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `mollie_key` varchar(255) DEFAULT NULL,
+  `mollie_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `mollie_status` int(11) NOT NULL DEFAULT 0,
   `mollie_currency_rate` double NOT NULL DEFAULT 1,
-  `paystack_public_key` varchar(255) DEFAULT NULL,
-  `paystack_secret_key` varchar(255) DEFAULT NULL,
+  `paystack_public_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `paystack_secret_key` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `paystack_currency_rate` double NOT NULL DEFAULT 1,
   `paystack_status` int(11) NOT NULL DEFAULT 0,
-  `mollie_country_code` varchar(191) NOT NULL,
-  `mollie_currency_code` varchar(191) NOT NULL,
-  `paystack_country_code` varchar(191) NOT NULL,
-  `paystack_currency_code` varchar(191) NOT NULL,
+  `mollie_country_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mollie_currency_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `paystack_country_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `paystack_currency_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2419,11 +2423,11 @@ INSERT INTO `paystack_and_mollies` (`id`, `mollie_key`, `mollie_status`, `mollie
 
 CREATE TABLE `personal_access_tokens` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `tokenable_type` varchar(255) NOT NULL,
+  `tokenable_type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `tokenable_id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `token` varchar(64) NOT NULL,
-  `abilities` text DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `token` varchar(64) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `abilities` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `last_used_at` timestamp NULL DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2483,27 +2487,27 @@ INSERT INTO `popular_posts` (`id`, `blog_id`, `status`, `created_at`, `updated_a
 
 CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `short_name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
-  `thumb_image` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `short_name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `thumb_image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `vendor_id` int(11) NOT NULL DEFAULT 0,
   `category_id` int(11) NOT NULL,
   `sub_category_id` int(11) NOT NULL DEFAULT 0,
   `child_category_id` int(11) NOT NULL DEFAULT 0,
   `brand_id` int(11) NOT NULL DEFAULT 0,
   `qty` int(11) NOT NULL DEFAULT 0,
-  `weight` varchar(255) NOT NULL DEFAULT '0',
+  `weight` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '0',
   `sold_qty` int(11) NOT NULL DEFAULT 0,
-  `short_description` text NOT NULL,
-  `long_description` longtext NOT NULL,
-  `video_link` varchar(255) DEFAULT NULL,
-  `sku` varchar(255) DEFAULT NULL,
-  `seo_title` text NOT NULL,
-  `seo_description` text NOT NULL,
+  `short_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `long_description` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
+  `video_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sku` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seo_description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` double NOT NULL,
   `offer_price` double DEFAULT NULL,
-  `tags` text DEFAULT NULL,
+  `tags` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `show_homepage` tinyint(4) NOT NULL DEFAULT 0,
   `is_undefine` tinyint(4) NOT NULL DEFAULT 0,
   `is_featured` tinyint(4) NOT NULL DEFAULT 0,
@@ -2569,7 +2573,7 @@ INSERT INTO `products` (`id`, `name`, `short_name`, `slug`, `thumb_image`, `vend
 CREATE TABLE `product_galleries` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` int(11) NOT NULL,
-  `image` varchar(255) NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(10) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2586,8 +2590,8 @@ CREATE TABLE `product_reports` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `seller_id` int(11) NOT NULL DEFAULT 0,
-  `subject` varchar(255) NOT NULL,
-  `description` text NOT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2612,7 +2616,7 @@ CREATE TABLE `product_reviews` (
   `product_id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL DEFAULT 0,
   `product_vendor_id` int(11) NOT NULL DEFAULT 0,
-  `review` text NOT NULL,
+  `review` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `rating` int(11) NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -2648,7 +2652,7 @@ CREATE TABLE `product_specifications` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` int(11) NOT NULL,
   `product_specification_key_id` int(11) NOT NULL,
-  `specification` varchar(255) NOT NULL,
+  `specification` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2661,7 +2665,7 @@ CREATE TABLE `product_specifications` (
 
 CREATE TABLE `product_specification_keys` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `key` varchar(255) NOT NULL,
+  `key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2686,7 +2690,7 @@ INSERT INTO `product_specification_keys` (`id`, `key`, `status`, `created_at`, `
 CREATE TABLE `product_variants` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2709,9 +2713,9 @@ INSERT INTO `product_variants` (`id`, `product_id`, `name`, `status`, `created_a
 CREATE TABLE `product_variant_items` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `product_variant_id` int(11) NOT NULL,
-  `product_variant_name` varchar(191) DEFAULT NULL,
+  `product_variant_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `product_id` int(11) NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `price` double NOT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `is_default` int(11) NOT NULL DEFAULT 0,
@@ -2736,10 +2740,10 @@ INSERT INTO `product_variant_items` (`id`, `product_variant_id`, `product_varian
 
 CREATE TABLE `pusher_credentails` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `app_id` varchar(255) NOT NULL,
-  `app_key` varchar(255) NOT NULL,
-  `app_secret` varchar(255) NOT NULL,
-  `app_cluster` varchar(255) NOT NULL,
+  `app_id` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `app_key` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `app_secret` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `app_cluster` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2760,15 +2764,15 @@ INSERT INTO `pusher_credentails` (`id`, `app_id`, `app_key`, `app_secret`, `app_
 CREATE TABLE `razorpay_payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `name` varchar(255) DEFAULT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `currency_rate` double NOT NULL DEFAULT 1,
-  `country_code` varchar(191) NOT NULL,
-  `currency_code` varchar(191) NOT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `color` varchar(255) DEFAULT NULL,
-  `key` text DEFAULT NULL,
-  `secret_key` text DEFAULT NULL,
+  `country_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency_code` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `color` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `key` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `secret_key` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2789,8 +2793,8 @@ INSERT INTO `razorpay_payments` (`id`, `status`, `name`, `currency_rate`, `count
 CREATE TABLE `seller_mail_logs` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `seller_id` int(11) NOT NULL,
-  `subject` varchar(255) NOT NULL,
-  `message` longtext NOT NULL,
+  `subject` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `message` longtext COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2804,13 +2808,13 @@ CREATE TABLE `seller_mail_logs` (
 CREATE TABLE `seller_withdraws` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `seller_id` int(11) NOT NULL,
-  `method` varchar(255) NOT NULL,
+  `method` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `total_amount` double NOT NULL,
   `withdraw_amount` double NOT NULL,
   `withdraw_charge` double NOT NULL,
-  `account_info` text NOT NULL,
+  `account_info` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `approved_date` varchar(191) DEFAULT NULL,
+  `approved_date` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2823,9 +2827,9 @@ CREATE TABLE `seller_withdraws` (
 
 CREATE TABLE `seo_settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `page_name` text DEFAULT NULL,
-  `seo_title` text DEFAULT NULL,
-  `seo_description` text DEFAULT NULL,
+  `page_name` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2851,9 +2855,9 @@ INSERT INTO `seo_settings` (`id`, `page_name`, `seo_title`, `seo_description`, `
 
 CREATE TABLE `services` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `icon` varchar(255) NOT NULL,
-  `description` text NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` tinyint(4) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -2878,51 +2882,53 @@ INSERT INTO `services` (`id`, `title`, `icon`, `description`, `status`, `created
 CREATE TABLE `settings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `maintenance_mode` int(11) NOT NULL DEFAULT 0,
-  `logo` varchar(255) DEFAULT NULL,
-  `favicon` varchar(255) DEFAULT NULL,
-  `contact_email` varchar(191) DEFAULT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `favicon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `contact_email` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `enable_user_register` int(11) NOT NULL DEFAULT 1,
   `phone_number_required` int(1) NOT NULL DEFAULT 1,
-  `default_phone_code` varchar(255) DEFAULT NULL,
+  `default_phone_code` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `enable_multivendor` int(11) NOT NULL DEFAULT 1,
   `enable_subscription_notify` int(11) NOT NULL DEFAULT 1,
   `enable_save_contact_message` int(11) NOT NULL DEFAULT 1,
-  `text_direction` varchar(255) NOT NULL DEFAULT 'LTR',
-  `timezone` varchar(255) DEFAULT NULL,
-  `sidebar_lg_header` varchar(255) DEFAULT NULL,
-  `sidebar_sm_header` varchar(255) DEFAULT NULL,
-  `topbar_phone` varchar(191) DEFAULT NULL,
-  `topbar_email` varchar(191) NOT NULL,
-  `currency_name` varchar(191) DEFAULT NULL,
-  `currency_icon` varchar(191) DEFAULT NULL,
+  `text_direction` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'LTR',
+  `timezone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sidebar_lg_header` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sidebar_sm_header` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `topbar_phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `topbar_email` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency_name` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `currency_icon` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `currency_rate` double NOT NULL DEFAULT 1,
   `show_product_progressbar` int(1) NOT NULL DEFAULT 1,
-  `theme_one` varchar(191) NOT NULL,
-  `theme_two` varchar(191) NOT NULL,
-  `seller_condition` longtext DEFAULT NULL,
-  `popular_category` varchar(255) NOT NULL DEFAULT 'Popular Category',
+  `theme_one` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `theme_two` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `seller_condition` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `popular_category` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'Popular Category',
   `popular_category_product_qty` int(10) NOT NULL DEFAULT 9,
-  `frontend_url` varchar(255) DEFAULT NULL,
-  `popular_category_banner` varchar(255) DEFAULT NULL,
-  `featured_category_banner` varchar(255) DEFAULT NULL,
-  `homepage_section_title` text NOT NULL,
-  `empty_cart` varchar(255) DEFAULT NULL,
-  `empty_wishlist` varchar(255) DEFAULT NULL,
-  `change_password_image` varchar(255) DEFAULT NULL,
-  `become_seller_avatar` varchar(255) DEFAULT NULL,
-  `become_seller_banner` varchar(255) DEFAULT NULL,
-  `admin_login_page` varchar(255) DEFAULT NULL,
+  `frontend_url` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `popular_category_banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `featured_category_banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `homepage_section_title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `empty_cart` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `empty_wishlist` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `change_password_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `become_seller_avatar` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `become_seller_banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `admin_login_page` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `app_version` varchar(255) NOT NULL DEFAULT 'App version : 1.1'
+  `app_version` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT 'App version : 1.1',
+  `address_1` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address_2` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Dumping data for table `settings`
 --
 
-INSERT INTO `settings` (`id`, `maintenance_mode`, `logo`, `favicon`, `contact_email`, `enable_user_register`, `phone_number_required`, `default_phone_code`, `enable_multivendor`, `enable_subscription_notify`, `enable_save_contact_message`, `text_direction`, `timezone`, `sidebar_lg_header`, `sidebar_sm_header`, `topbar_phone`, `topbar_email`, `currency_name`, `currency_icon`, `currency_rate`, `show_product_progressbar`, `theme_one`, `theme_two`, `seller_condition`, `popular_category`, `popular_category_product_qty`, `frontend_url`, `popular_category_banner`, `featured_category_banner`, `homepage_section_title`, `empty_cart`, `empty_wishlist`, `change_password_image`, `become_seller_avatar`, `become_seller_banner`, `admin_login_page`, `created_at`, `updated_at`, `app_version`) VALUES
-(1, 1, 'uploads/website-images/logo-2023-06-14-03-31-56-9795.png', 'uploads/website-images/favicon-2023-06-14-03-31-56-5279.png', 'abdur.rohman2003@gmail.com', 1, 1, 'BD', 1, 1, 1, 'ltr', 'Asia/Dhaka', 'ShopUs', 'SU', '123-854-7896', 'contact@gmail.com', 'USD', '$', 85.76, 0, '#ffde0a', '#b1a306', '<h1><span style=\"color: rgb(0, 0, 0);\">Terms and Conditions</span></h1>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Welcome to QuomodoTheme!</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">These terms and conditions outline the rules and regulations for the use of Quomodo Theme Us Inc.\'s Website, located at https://QuomodoTheme.com.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">By accessing this website we assume you accept these terms and conditions. Do not continue to use QuomodoTheme if you do not agree to take all of the terms and conditions stated on this page.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: \"Client\", \"You\" and \"Your\" refers to you, the person log on this website and compliant to the Company&rsquo;s terms and conditions. \"The Company\", \"Ourselves\", \"We\", \"Our\" and \"Us\", refers to our Company. \"Party\", \"Parties\", or \"Us\", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client&rsquo;s needs in respect of provision of the Company&rsquo;s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Cookies</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We employ the use of cookies. By accessing QuomodoTheme, you agreed to use cookies in agreement with the Quomodo Theme Us Inc.\'s Privacy Policy.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Most interactive websites use cookies to let us retrieve the user&rsquo;s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">License</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Unless otherwise stated, Quomodo Theme Us Inc. and/or its licensors own the intellectual property rights for all material on QuomodoTheme. All intellectual property rights are reserved. You may access this from QuomodoTheme for your own personal use subjected to restrictions set in these terms and conditions.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">You must not:</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Republish material from QuomodoTheme</span><br><span style=\"color: rgb(0, 0, 0);\">Sell, rent or sub-license material from QuomodoTheme</span><br><span style=\"color: rgb(0, 0, 0);\">Reproduce, duplicate or copy material from QuomodoTheme</span><br><span style=\"color: rgb(0, 0, 0);\">Redistribute content from QuomodoTheme</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the Terms And Conditions Template.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. Quomodo Theme Us Inc. does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Quomodo Theme Us Inc.,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, Quomodo Theme Us Inc. shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Quomodo Theme Us Inc. reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">You warrant and represent that:</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</span><br><span style=\"color: rgb(0, 0, 0);\">The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</span><br><span style=\"color: rgb(0, 0, 0);\">The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</span><br><span style=\"color: rgb(0, 0, 0);\">The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">You hereby grant Quomodo Theme Us Inc. a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Hyperlinking to our Content</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">The following organizations may link to our Website without prior written approval:</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Government agencies;</span><br><span style=\"color: rgb(0, 0, 0);\">Search engines;</span><br><span style=\"color: rgb(0, 0, 0);\">News organizations;</span><br><span style=\"color: rgb(0, 0, 0);\">Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</span><br><span style=\"color: rgb(0, 0, 0);\">System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party&rsquo;s site.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We may consider and approve other link requests from the following types of organizations:</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">commonly-known consumer and/or business information sources;</span><br><span style=\"color: rgb(0, 0, 0);\">dot.com community sites;</span><br><span style=\"color: rgb(0, 0, 0);\">associations or other groups representing charities;</span><br><span style=\"color: rgb(0, 0, 0);\">online directory distributors;</span><br><span style=\"color: rgb(0, 0, 0);\">internet portals;</span><br><span style=\"color: rgb(0, 0, 0);\">accounting, law and consulting firms; and</span><br><span style=\"color: rgb(0, 0, 0);\">educational institutions and trade associations.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of Quomodo Theme Us Inc.; and (d) the link is in the context of general resource information.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party&rsquo;s site.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to Quomodo Theme Us Inc.. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Approved organizations may hyperlink to our Website as follows:</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">By use of our corporate name; or</span><br><span style=\"color: rgb(0, 0, 0);\">By use of the uniform resource locator being linked to; or</span><br><span style=\"color: rgb(0, 0, 0);\">By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party&rsquo;s site.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">No use of Quomodo Theme Us Inc.\'s logo or other artwork will be allowed for linking absent a trademark license agreement.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">iFrames</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Content Liability</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Your Privacy</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Please read Privacy Policy</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Reservation of Rights</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it&rsquo;s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Removal of links from our website</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Disclaimer</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">limit or exclude our or your liability for death or personal injury;</span><br><span style=\"color: rgb(0, 0, 0);\">limit or exclude our or your liability for fraud or fraudulent misrepresentation;</span><br><span style=\"color: rgb(0, 0, 0);\">limit any of our or your liabilities in any way that is not permitted under applicable law; or</span><br><span style=\"color: rgb(0, 0, 0);\">exclude any of our or your liabilities that may not be excluded under applicable law.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</span></p>', 'Popular Category', 9, 'https://shopus-quomodo.vercel.app/', 'uploads/website-images/popular-cat-banner-2022-09-20-01-15-44-7577.jpg', 'uploads/website-images/featured-cat-banner-2022-09-21-02-43-49-4710.jpg', '[{\"key\":\"My_Market_Category\",\"default\":\"My Market Category\",\"custom\":\"Hot Shot Category\"},{\"key\":\"Popular_Category\",\"default\":\"Popular Category\",\"custom\":\"Popular Category\"},{\"key\":\"Top_Rated_Products\",\"default\":\"Top Rated Products\",\"custom\":\"Top Rated Products\"},{\"key\":\"Best_Seller\",\"default\":\"Best Seller\",\"custom\":\"Best Seller\"},{\"key\":\"Featured_Products\",\"default\":\"Featured Products\",\"custom\":\"Featured Products\"},{\"key\":\"New_Arrivals\",\"default\":\"New Arrivals\",\"custom\":\"New Arrivals\"},{\"key\":\"Best_Products\",\"default\":\"Best Products\",\"custom\":\"Best Products\"}]', 'uploads/website-images/empty_cart-2022-12-11-11-20-13-2650.png', 'uploads/website-images/empty_wishlist-2022-12-11-11-20-13-5116.png', 'uploads/website-images/change_password_image-2022-12-11-11-20-13-6890.png', 'uploads/website-images/become_seller_avatar-2022-11-13-05-29-56-5617.png', 'uploads/website-images/become_seller_banner-2022-11-13-05-31-26-2357.png', 'uploads/website-images/admin_login_page-2023-02-23-08-50-36-5249.png', NULL, '2023-06-14 15:31:56', 'App Version : 1.5');
+INSERT INTO `settings` (`id`, `maintenance_mode`, `logo`, `favicon`, `contact_email`, `enable_user_register`, `phone_number_required`, `default_phone_code`, `enable_multivendor`, `enable_subscription_notify`, `enable_save_contact_message`, `text_direction`, `timezone`, `sidebar_lg_header`, `sidebar_sm_header`, `topbar_phone`, `topbar_email`, `currency_name`, `currency_icon`, `currency_rate`, `show_product_progressbar`, `theme_one`, `theme_two`, `seller_condition`, `popular_category`, `popular_category_product_qty`, `frontend_url`, `popular_category_banner`, `featured_category_banner`, `homepage_section_title`, `empty_cart`, `empty_wishlist`, `change_password_image`, `become_seller_avatar`, `become_seller_banner`, `admin_login_page`, `created_at`, `updated_at`, `app_version`, `address_1`, `address_2`) VALUES
+(1, 1, 'uploads/website-images/logo-2023-06-14-03-31-56-9795.png', 'uploads/website-images/favicon-2023-06-14-03-31-56-5279.png', 'abdur.rohman2003@gmail.com', 1, 1, 'BD', 1, 1, 1, 'ltr', 'Asia/Dhaka', 'ShopUs', 'SU', '01700000000', 'contact@gmail.com', 'USD', '$', 85.76, 0, '#ffde0a', '#b1a306', '<h1><span style=\"color: rgb(0, 0, 0);\">Terms and Conditions</span></h1>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Welcome to QuomodoTheme!</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">These terms and conditions outline the rules and regulations for the use of Quomodo Theme Us Inc.\'s Website, located at https://QuomodoTheme.com.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">By accessing this website we assume you accept these terms and conditions. Do not continue to use QuomodoTheme if you do not agree to take all of the terms and conditions stated on this page.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and all Agreements: \"Client\", \"You\" and \"Your\" refers to you, the person log on this website and compliant to the Company&rsquo;s terms and conditions. \"The Company\", \"Ourselves\", \"We\", \"Our\" and \"Us\", refers to our Company. \"Party\", \"Parties\", or \"Us\", refers to both the Client and ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner for the express purpose of meeting the Client&rsquo;s needs in respect of provision of the Company&rsquo;s stated services, in accordance with and subject to, prevailing law of Netherlands. Any use of the above terminology or other words in the singular, plural, capitalization and/or he/she or they, are taken as interchangeable and therefore as referring to same.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Cookies</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We employ the use of cookies. By accessing QuomodoTheme, you agreed to use cookies in agreement with the Quomodo Theme Us Inc.\'s Privacy Policy.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Most interactive websites use cookies to let us retrieve the user&rsquo;s details for each visit. Cookies are used by our website to enable the functionality of certain areas to make it easier for people visiting our website. Some of our affiliate/advertising partners may also use cookies.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">License</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Unless otherwise stated, Quomodo Theme Us Inc. and/or its licensors own the intellectual property rights for all material on QuomodoTheme. All intellectual property rights are reserved. You may access this from QuomodoTheme for your own personal use subjected to restrictions set in these terms and conditions.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">You must not:</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Republish material from QuomodoTheme</span><br><span style=\"color: rgb(0, 0, 0);\">Sell, rent or sub-license material from QuomodoTheme</span><br><span style=\"color: rgb(0, 0, 0);\">Reproduce, duplicate or copy material from QuomodoTheme</span><br><span style=\"color: rgb(0, 0, 0);\">Redistribute content from QuomodoTheme</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">This Agreement shall begin on the date hereof. Our Terms and Conditions were created with the help of the Terms And Conditions Template.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Parts of this website offer an opportunity for users to post and exchange opinions and information in certain areas of the website. Quomodo Theme Us Inc. does not filter, edit, publish or review Comments prior to their presence on the website. Comments do not reflect the views and opinions of Quomodo Theme Us Inc.,its agents and/or affiliates. Comments reflect the views and opinions of the person who post their views and opinions. To the extent permitted by applicable laws, Quomodo Theme Us Inc. shall not be liable for the Comments or for any liability, damages or expenses caused and/or suffered as a result of any use of and/or posting of and/or appearance of the Comments on this website.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Quomodo Theme Us Inc. reserves the right to monitor all Comments and to remove any Comments which can be considered inappropriate, offensive or causes breach of these Terms and Conditions.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">You warrant and represent that:</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">You are entitled to post the Comments on our website and have all necessary licenses and consents to do so;</span><br><span style=\"color: rgb(0, 0, 0);\">The Comments do not invade any intellectual property right, including without limitation copyright, patent or trademark of any third party;</span><br><span style=\"color: rgb(0, 0, 0);\">The Comments do not contain any defamatory, libelous, offensive, indecent or otherwise unlawful material which is an invasion of privacy</span><br><span style=\"color: rgb(0, 0, 0);\">The Comments will not be used to solicit or promote business or custom or present commercial activities or unlawful activity.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">You hereby grant Quomodo Theme Us Inc. a non-exclusive license to use, reproduce, edit and authorize others to use, reproduce and edit any of your Comments in any and all forms, formats or media.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Hyperlinking to our Content</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">The following organizations may link to our Website without prior written approval:</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Government agencies;</span><br><span style=\"color: rgb(0, 0, 0);\">Search engines;</span><br><span style=\"color: rgb(0, 0, 0);\">News organizations;</span><br><span style=\"color: rgb(0, 0, 0);\">Online directory distributors may link to our Website in the same manner as they hyperlink to the Websites of other listed businesses; and</span><br><span style=\"color: rgb(0, 0, 0);\">System wide Accredited Businesses except soliciting non-profit organizations, charity shopping malls, and charity fundraising groups which may not hyperlink to our Web site.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">These organizations may link to our home page, to publications or to other Website information so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products and/or services; and (c) fits within the context of the linking party&rsquo;s site.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We may consider and approve other link requests from the following types of organizations:</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">commonly-known consumer and/or business information sources;</span><br><span style=\"color: rgb(0, 0, 0);\">dot.com community sites;</span><br><span style=\"color: rgb(0, 0, 0);\">associations or other groups representing charities;</span><br><span style=\"color: rgb(0, 0, 0);\">online directory distributors;</span><br><span style=\"color: rgb(0, 0, 0);\">internet portals;</span><br><span style=\"color: rgb(0, 0, 0);\">accounting, law and consulting firms; and</span><br><span style=\"color: rgb(0, 0, 0);\">educational institutions and trade associations.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We will approve link requests from these organizations if we decide that: (a) the link would not make us look unfavorably to ourselves or to our accredited businesses; (b) the organization does not have any negative records with us; (c) the benefit to us from the visibility of the hyperlink compensates the absence of Quomodo Theme Us Inc.; and (d) the link is in the context of general resource information.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">These organizations may link to our home page so long as the link: (a) is not in any way deceptive; (b) does not falsely imply sponsorship, endorsement or approval of the linking party and its products or services; and (c) fits within the context of the linking party&rsquo;s site.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">If you are one of the organizations listed in paragraph 2 above and are interested in linking to our website, you must inform us by sending an e-mail to Quomodo Theme Us Inc.. Please include your name, your organization name, contact information as well as the URL of your site, a list of any URLs from which you intend to link to our Website, and a list of the URLs on our site to which you would like to link. Wait 2-3 weeks for a response.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Approved organizations may hyperlink to our Website as follows:</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">By use of our corporate name; or</span><br><span style=\"color: rgb(0, 0, 0);\">By use of the uniform resource locator being linked to; or</span><br><span style=\"color: rgb(0, 0, 0);\">By use of any other description of our Website being linked to that makes sense within the context and format of content on the linking party&rsquo;s site.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">No use of Quomodo Theme Us Inc.\'s logo or other artwork will be allowed for linking absent a trademark license agreement.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">iFrames</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Without prior approval and written permission, you may not create frames around our Webpages that alter in any way the visual presentation or appearance of our Website.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Content Liability</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We shall not be hold responsible for any content that appears on your Website. You agree to protect and defend us against all claims that is rising on your Website. No link(s) should appear on any Website that may be interpreted as libelous, obscene or criminal, or which infringes, otherwise violates, or advocates the infringement or other violation of, any third party rights.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Your Privacy</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Please read Privacy Policy</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Reservation of Rights</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We reserve the right to request that you remove all links or any particular link to our Website. You approve to immediately remove all links to our Website upon request. We also reserve the right to amen these terms and conditions and it&rsquo;s linking policy at any time. By continuously linking to our Website, you agree to be bound to and follow these linking terms and conditions.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">Removal of links from our website</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">If you find any link on our Website that is offensive for any reason, you are free to contact and inform us any moment. We will consider requests to remove links but we are not obligated to or so or to respond to you directly.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">We do not ensure that the information on this website is correct, we do not warrant its completeness or accuracy; nor do we promise to ensure that the website remains available or that the material on the website is kept up to date.</span></p>\r\n<h3><span style=\"color: rgb(0, 0, 0);\">Disclaimer</span></h3>\r\n<p><span style=\"color: rgb(0, 0, 0);\">To the maximum extent permitted by applicable law, we exclude all representations, warranties and conditions relating to our website and the use of this website. Nothing in this disclaimer will:</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">limit or exclude our or your liability for death or personal injury;</span><br><span style=\"color: rgb(0, 0, 0);\">limit or exclude our or your liability for fraud or fraudulent misrepresentation;</span><br><span style=\"color: rgb(0, 0, 0);\">limit any of our or your liabilities in any way that is not permitted under applicable law; or</span><br><span style=\"color: rgb(0, 0, 0);\">exclude any of our or your liabilities that may not be excluded under applicable law.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">The limitations and prohibitions of liability set in this Section and elsewhere in this disclaimer: (a) are subject to the preceding paragraph; and (b) govern all liabilities arising under the disclaimer, including liabilities arising in contract, in tort and for breach of statutory duty.</span></p>\r\n<p><span style=\"color: rgb(0, 0, 0);\">As long as the website and the information and services on the website are provided free of charge, we will not be liable for any loss or damage of any nature.</span></p>', 'Popular Category', 9, 'https://shopus-quomodo.vercel.app/', 'uploads/website-images/popular-cat-banner-2022-09-20-01-15-44-7577.jpg', 'uploads/website-images/featured-cat-banner-2022-09-21-02-43-49-4710.jpg', '[{\"key\":\"My_Market_Category\",\"default\":\"My Market Category\",\"custom\":\"Hot Shot Category\"},{\"key\":\"Popular_Category\",\"default\":\"Popular Category\",\"custom\":\"Popular Category\"},{\"key\":\"Top_Rated_Products\",\"default\":\"Top Rated Products\",\"custom\":\"Top Rated Products\"},{\"key\":\"Best_Seller\",\"default\":\"Best Seller\",\"custom\":\"Best Seller\"},{\"key\":\"Featured_Products\",\"default\":\"Featured Products\",\"custom\":\"Featured Products\"},{\"key\":\"New_Arrivals\",\"default\":\"New Arrivals\",\"custom\":\"New Arrivals\"},{\"key\":\"Best_Products\",\"default\":\"Best Products\",\"custom\":\"Best Products\"}]', 'uploads/website-images/empty_cart-2022-12-11-11-20-13-2650.png', 'uploads/website-images/empty_wishlist-2022-12-11-11-20-13-5116.png', 'uploads/website-images/change_password_image-2022-12-11-11-20-13-6890.png', 'uploads/website-images/become_seller_avatar-2022-11-13-05-29-56-5617.png', 'uploads/website-images/become_seller_banner-2022-11-13-05-31-26-2357.png', 'uploads/website-images/admin_login_page-2023-02-23-08-50-36-5249.png', NULL, '2023-06-14 15:31:56', 'App Version : 1.5', 'Mohammadpur', 'Dhaka-1207');
 
 -- --------------------------------------------------------
 
@@ -2933,11 +2939,11 @@ INSERT INTO `settings` (`id`, `maintenance_mode`, `logo`, `favicon`, `contact_em
 CREATE TABLE `shippings` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `city_id` int(11) NOT NULL,
-  `shipping_rule` varchar(255) NOT NULL,
-  `type` varchar(255) NOT NULL,
+  `shipping_rule` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `type` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `shipping_fee` double NOT NULL,
-  `condition_from` varchar(255) NOT NULL,
-  `condition_to` varchar(255) NOT NULL,
+  `condition_from` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `condition_to` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -2962,7 +2968,7 @@ CREATE TABLE `shopping_carts` (
   `user_id` int(11) NOT NULL,
   `product_id` int(11) NOT NULL,
   `qty` int(11) NOT NULL,
-  `coupon_name` varchar(255) DEFAULT NULL,
+  `coupon_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `coupon_price` double NOT NULL,
   `offer_type` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -3046,13 +3052,13 @@ INSERT INTO `shopping_cart_variants` (`id`, `shopping_cart_id`, `variant_id`, `v
 
 CREATE TABLE `shop_pages` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `header_one` varchar(255) DEFAULT NULL,
-  `header_two` varchar(255) DEFAULT NULL,
-  `title_one` varchar(255) DEFAULT NULL,
-  `title_two` varchar(255) DEFAULT NULL,
-  `banner` varchar(255) DEFAULT NULL,
-  `link` varchar(255) DEFAULT NULL,
-  `button_text` varchar(255) DEFAULT NULL,
+  `header_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `header_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `banner` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `button_text` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(1) NOT NULL DEFAULT 1,
   `filter_price_range` double NOT NULL DEFAULT 10000,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -3074,14 +3080,14 @@ INSERT INTO `shop_pages` (`id`, `header_one`, `header_two`, `title_one`, `title_
 
 CREATE TABLE `sliders` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `title_one` varchar(255) DEFAULT NULL,
-  `title_two` varchar(255) DEFAULT NULL,
-  `image` varchar(255) DEFAULT NULL,
-  `link` text DEFAULT NULL,
+  `title_one` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `title_two` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `serial` int(11) NOT NULL DEFAULT 0,
-  `slider_location` varchar(255) DEFAULT NULL,
-  `product_slug` text DEFAULT NULL,
+  `slider_location` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `product_slug` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3103,9 +3109,9 @@ INSERT INTO `sliders` (`id`, `title_one`, `title_two`, `image`, `link`, `status`
 
 CREATE TABLE `sms_templates` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` text DEFAULT NULL,
-  `subject` text DEFAULT NULL,
-  `description` text DEFAULT NULL,
+  `name` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subject` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3128,13 +3134,13 @@ INSERT INTO `sms_templates` (`id`, `name`, `subject`, `description`, `created_at
 CREATE TABLE `social_login_information` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `is_facebook` int(11) NOT NULL DEFAULT 0,
-  `facebook_client_id` text DEFAULT NULL,
-  `facebook_secret_id` text DEFAULT NULL,
+  `facebook_client_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook_secret_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_gmail` int(11) NOT NULL DEFAULT 0,
-  `gmail_client_id` text DEFAULT NULL,
-  `gmail_secret_id` text DEFAULT NULL,
-  `facebook_redirect_url` text DEFAULT NULL,
-  `gmail_redirect_url` text DEFAULT NULL,
+  `gmail_client_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gmail_secret_id` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `facebook_redirect_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `gmail_redirect_url` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3154,12 +3160,12 @@ INSERT INTO `social_login_information` (`id`, `is_facebook`, `facebook_client_id
 
 CREATE TABLE `sslcommerz_payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `store_id` text NOT NULL,
-  `store_password` text NOT NULL,
-  `mode` varchar(255) NOT NULL,
-  `currency_rate` varchar(255) NOT NULL,
-  `country_code` varchar(255) NOT NULL,
-  `currency_code` varchar(255) NOT NULL,
+  `store_id` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `store_password` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `mode` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency_rate` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `country_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency_code` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(1) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3181,12 +3187,12 @@ INSERT INTO `sslcommerz_payments` (`id`, `store_id`, `store_password`, `mode`, `
 CREATE TABLE `stripe_payments` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `stripe_key` text DEFAULT NULL,
-  `stripe_secret` text DEFAULT NULL,
+  `stripe_key` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `stripe_secret` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL,
-  `country_code` varchar(10) NOT NULL,
-  `currency_code` varchar(10) NOT NULL,
+  `country_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `currency_code` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
   `currency_rate` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
@@ -3205,9 +3211,9 @@ INSERT INTO `stripe_payments` (`id`, `status`, `stripe_key`, `stripe_secret`, `c
 
 CREATE TABLE `subscribers` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
-  `verified_token` text DEFAULT NULL,
+  `verified_token` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_verified` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3236,8 +3242,8 @@ INSERT INTO `subscribers` (`id`, `email`, `status`, `verified_token`, `is_verifi
 CREATE TABLE `sub_categories` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `category_id` int(10) NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `slug` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `slug` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3266,9 +3272,9 @@ INSERT INTO `sub_categories` (`id`, `category_id`, `name`, `slug`, `status`, `cr
 
 CREATE TABLE `tawk_chats` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `chat_link` varchar(255) DEFAULT NULL,
-  `widget_id` varchar(255) DEFAULT NULL,
-  `property_id` varchar(255) DEFAULT NULL,
+  `chat_link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `widget_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `property_id` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3289,8 +3295,8 @@ INSERT INTO `tawk_chats` (`id`, `chat_link`, `widget_id`, `property_id`, `status
 
 CREATE TABLE `terms_and_conditions` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `terms_and_condition` longtext DEFAULT NULL,
-  `privacy_policy` longtext DEFAULT NULL,
+  `terms_and_condition` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `privacy_policy` longtext COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3310,11 +3316,11 @@ INSERT INTO `terms_and_conditions` (`id`, `terms_and_condition`, `privacy_policy
 
 CREATE TABLE `testimonials` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `designation` varchar(255) NOT NULL,
-  `image` varchar(255) NOT NULL,
-  `rating` varchar(255) NOT NULL,
-  `comment` text NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `designation` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `image` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `rating` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `comment` text COLLATE utf8mb4_unicode_ci NOT NULL,
   `status` int(11) NOT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -3366,9 +3372,9 @@ INSERT INTO `three_column_categories` (`id`, `category_id_one`, `sub_category_id
 
 CREATE TABLE `twilio_sms` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `account_sid` text NOT NULL,
-  `auth_token` text NOT NULL,
-  `twilio_phone_number` varchar(255) NOT NULL,
+  `account_sid` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `auth_token` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `twilio_phone_number` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `enable_register_sms` int(11) NOT NULL DEFAULT 0,
   `enable_reset_pass_sms` int(11) NOT NULL DEFAULT 0,
   `enable_order_confirmation_sms` int(11) NOT NULL DEFAULT 0,
@@ -3391,25 +3397,25 @@ INSERT INTO `twilio_sms` (`id`, `account_sid`, `auth_token`, `twilio_phone_numbe
 
 CREATE TABLE `users` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `email_verified_at` timestamp NULL DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `remember_token` varchar(100) DEFAULT NULL,
-  `forget_password_token` varchar(191) DEFAULT NULL,
+  `password` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `remember_token` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `forget_password_token` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(10) NOT NULL DEFAULT 0,
-  `provider_id` varchar(191) DEFAULT NULL,
-  `provider` varchar(191) DEFAULT NULL,
-  `provider_avatar` varchar(191) DEFAULT NULL,
-  `image` varchar(191) DEFAULT NULL,
-  `phone` varchar(191) DEFAULT NULL,
+  `provider_id` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `provider_avatar` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `image` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `country_id` int(10) DEFAULT 0,
   `state_id` int(10) DEFAULT 0,
   `city_id` int(10) DEFAULT 0,
-  `zip_code` varchar(191) DEFAULT NULL,
-  `address` varchar(191) DEFAULT NULL,
+  `zip_code` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_vendor` int(10) NOT NULL DEFAULT 0,
-  `verify_token` varchar(191) DEFAULT NULL,
+  `verify_token` varchar(191) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `email_verified` int(1) NOT NULL DEFAULT 0,
   `agree_policy` int(1) DEFAULT 0,
   `created_at` timestamp NULL DEFAULT NULL,
@@ -3461,23 +3467,23 @@ CREATE TABLE `vendors` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `user_id` int(11) NOT NULL,
   `total_amount` double NOT NULL DEFAULT 0,
-  `banner_image` varchar(255) DEFAULT NULL,
-  `logo` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `shop_name` varchar(255) DEFAULT NULL,
-  `slug` varchar(191) NOT NULL,
-  `open_at` varchar(255) DEFAULT NULL,
-  `closed_at` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `seo_title` text DEFAULT NULL,
-  `seo_description` text DEFAULT NULL,
+  `banner_image` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `logo` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `phone` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `shop_name` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `slug` varchar(191) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `open_at` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `closed_at` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `address` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_title` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `seo_description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 0,
   `is_featured` int(11) NOT NULL DEFAULT 0,
   `top_rated` int(11) NOT NULL DEFAULT 0,
-  `verified_token` varchar(255) DEFAULT NULL,
+  `verified_token` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `is_verified` int(11) NOT NULL DEFAULT 0,
-  `greeting_msg` text DEFAULT NULL,
+  `greeting_msg` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3504,8 +3510,8 @@ INSERT INTO `vendors` (`id`, `user_id`, `total_amount`, `banner_image`, `logo`, 
 CREATE TABLE `vendor_social_links` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `vendor_id` int(11) NOT NULL,
-  `icon` varchar(255) DEFAULT NULL,
-  `link` varchar(255) DEFAULT NULL,
+  `icon` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `link` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -3549,11 +3555,11 @@ INSERT INTO `wishlists` (`id`, `user_id`, `product_id`, `created_at`, `updated_a
 
 CREATE TABLE `withdraw_methods` (
   `id` bigint(20) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
+  `name` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
   `min_amount` double NOT NULL DEFAULT 0,
   `max_amount` double NOT NULL DEFAULT 0,
   `withdraw_charge` double NOT NULL DEFAULT 0,
-  `description` text DEFAULT NULL,
+  `description` text COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `status` int(11) NOT NULL DEFAULT 1,
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
@@ -4358,7 +4364,7 @@ ALTER TABLE `faqs`
 -- AUTO_INCREMENT for table `featured_categories`
 --
 ALTER TABLE `featured_categories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `flash_sales`

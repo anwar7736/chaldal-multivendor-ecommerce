@@ -12,7 +12,13 @@
                 <img src="{{ asset($product->thumb_image) }}" size="400" style="background-color:transparent;">
             </div>
             <div class="name" data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.2">{{ $product->name }}</div>
-            <div class="subText" data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.3">{{ $product->qty }} pcs</div>
+            <div class="subText" data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.3">
+                @if($product->qty > 0)
+                <span>{{ $product->qty }} Pcs</span>
+                @else
+                <strong class="text-danger">Stock not available!</strong>
+                @endif
+            </div>
             <div class="discountedPriceSection">
                 @if(empty($product->offer_price))
                     <div class="discountedPrice" data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.4.0"><span data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.4.0.0">৳ </span><span data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.4.0.1">{{ $product->price }}</span></div>
@@ -21,10 +27,10 @@
                     <div class="price" data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.4.1"><span data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.4.1.0">৳ </span><span data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.4.1.1">{{ $product->price }}</span></div>
                 @endif
             </div>
-            <div class="overlay text">
+            <div class="overlay text add-to-cart" data-id="{{ $product->id }}" data-url="{{ route('front.cart.store') }}">
                 <p class="addText">Add to Shopping Bag</p>
                 <span>
-                    <a href="javascript:void(0)" class="btnShowDetails">
+                    <a href="{{ route('front.product.show', [ $product->id ] ) }}" class="btnShowDetails">
                         <span>Details</span>
                         <span>  &gt;</span>
                     </a>
@@ -50,7 +56,7 @@
                     <path d="M38.487 11.472H31.78l6.12-9.643h-8.457L21.9 16.906h5.723l-6.289 14.935z" transform="translate(-21.334 -1.829)"></path>
                 </svg>
             </span>
-            <p class="buyText">Add to bag</p>
+            <p class="buyText add-to-cart" data-id="{{ $product->id }}" data-url="{{ route('front.cart.store') }}">Add to bag</p>
         </section>
     </div>
 </div>

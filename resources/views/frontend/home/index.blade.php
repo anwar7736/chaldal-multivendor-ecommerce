@@ -44,23 +44,23 @@
                         <section class="categoryTiles" id="product-categories">
                             <div class="initialLabel">
                                 <h2>
-                                    <strong>
+                                    <span>
                                         Our  Product Categories
-                                    </strong>
+                                    </span>
                                 </h2>
                             </div>
                             <div class="mainTile">
-                               @forelse($categories as $key => $category)
+                               @forelse($feateuredCategories as $key => $item)
                                <a href="{{ route('front.subcategory', [
-                                            'type'=>'category', 
-                                            'slug'=> $category->slug 
+                                            'type'=>'subcategory', 
+                                            'slug'=> $item->category->slug 
                                         ] ) }}">
                                     <div class="categoryBox">
                                         <div class="categoryName">
-                                            {{ $category->name }}
+                                            {{ $item->category->name }}
                                         </div>
                                         <div class="categoryImg">
-                                            <img src="{{ asset($category->image) }}" height="30" width="30">
+                                            <img src="{{ asset($item->category->image) }}" height="30" width="30">
                                         </div>
                                     </div>
                                 </a>
@@ -239,7 +239,7 @@
                                         <h4>Flexible Delivery</h4>
                                     </li>
                                 </ul>
-                                <a href="">Find Out More</a>
+                                <a href="javascript:void(0)">Find Out More</a>
                             </div>
                         </div>
                     </section>
@@ -263,10 +263,10 @@
                                     </div>
                                 </form>
                                 <div class="appButtonGroup">
-                                    <a href="" class="googlePlayLink">
+                                    <a href="javascript:void(0)" class="googlePlayLink">
                                         <img alt="Download chaldal Android app" src="https://chaldn.com/asset/Egg.ChaldalWeb.Fabric/Egg.ChaldalWeb1/1.0.0+Deploy-Release-269/Default/stores/chaldal/components/landingPage2/MobileAppSection/images/lp_getandroidapp.png?v=2&amp;q=low&amp;webp=1&amp;alpha=1">
                                     </a>
-                                    <a href="" class="iosAppLink">
+                                    <a href="javascript:void(0)" class="iosAppLink">
                                         <img src="https://chaldn.com/asset/Egg.ChaldalWeb.Fabric/Egg.ChaldalWeb1/1.0.0+Deploy-Release-269/Default/stores/chaldal/components/landingPage2/MobileAppSection/images/lp_getappleapp.png?v=2&amp;q=low&amp;webp=1&amp;alpha=1">
                                     </a>
                                 </div>
@@ -352,7 +352,7 @@
                          <div class="footer-left">
                             <div class="footerTop">
                                 <h2 class="footerLogo">
-                                    <img class="chaldal_logo" style="background-image:url({{ asset('frontend/images/logo/logo-small.webp') }});background-repeat:no-repeat;" src="{{ asset('frontend/images/others/download.gif') }}" alt="Chaldal logo">
+                                    <img class="chaldal_logo" style="background-image:url();background-repeat:no-repeat;" src="{{ asset(siteInfo()->logo) }}" alt="">
                                 </h2>
                                 <span>Chaldal.com is an online shop available in Dhaka, Chattogram and Jashore. We believe time is valuable to our fellow residents, and that they should not have to waste hours in traffic, brave bad weather and wait in line just to buy basic necessities like eggs! This is why Chaldal delivers everything you need right at your door-step and at no additional cost.</span>
                             </div>
@@ -362,17 +362,17 @@
                                         <span>Customer Service</span></p>
                                     <ul>
                                         
-                                        <li><a href="/t/ContactUs">Contact Us</a></li>
-                                        <li><a href="/t/Help">FAQ</a></li>
+                                        <li><a href="javascript:void(0)">Contact Us</a></li>
+                                        <li><a href="javascript:void(0)">FAQ</a></li>
                                         
                                     </ul>
                                 </div>
                                 <div class="list-type customer-service">
-                                    <p><span>About Chaldal</span></p>
+                                    <p><span>About This Website</span></p>
                                     <ul>
                                         
-                                        <li><a href="/t/PrivacyInfo">Privacy Policy</a></li>
-                                        <li><a href="/t/TermsOfUse">Terms of Use</a></li>
+                                        <li><a href="javascript:void(0)">Privacy Policy</a></li>
+                                        <li><a href="javascript:void(0)">Terms of Use</a></li>
                                         
                                     </ul>
                                 </div>
@@ -380,7 +380,7 @@
                                     <p><span>For Business</span></p>
                                     <ul>
                                         
-                                        <li><a href="corporate">Corporate</a></li>
+                                        <li><a href="javascript:void(0)">Corporate</a></li>
                                         
                                     </ul>
                                 </div>
@@ -390,12 +390,12 @@
                             <div class="app-download-section">
                                <div class="wrap">
                                     <div class="google_play_store">
-                                        <a href="">
+                                        <a href="javascript:void(0)">
                                             <img src="{{ asset('frontend/images/others/google_play_store.webp') }}">
                                         </a>
                                     </div>
                                     <div class="app_store">
-                                        <a href="">
+                                        <a href="javascript:void(0)">
                                             <img src="{{ asset('frontend/images/others/app_store.webp') }}">
                                         </a>
                                     </div>
@@ -408,34 +408,34 @@
                                             <img src="{{ asset('frontend/images/others/phone_icon.webp') }}">
                                         </span>
                                         <span class="number">
-                                            <span>16710</span>
+                                            <span>{{ siteInfo()->topbar_phone }}</span>
                                         </span>
                                     </div>
                                </div>
                                 <div class="email-address">
                                     <span class="pre-text">or email</span>
-                                    <span class="email">support@chaldal.com</span>
+                                    <span class="email">{{ siteInfo()->contact_email }}</span>
                                 </div>
                             </div>
                             <div class="social-section">
                                <ul>
                                     <li>
-                                        <a href="" target="_blank">
+                                        <a href="javascript:void(0)" target="_blank">
                                             <img src="{{ asset('frontend/images/others/Facebook.webp') }}">
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" target="_blank">
+                                        <a href="javascript:void(0)" target="_blank">
                                             <img src="{{ asset('frontend/images/others/Youtube.webp') }}">
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" target="_blank">
+                                        <a href="javascript:void(0)" target="_blank">
                                             <img src="{{ asset('frontend/images/others/twitter.webp') }}">
                                         </a>
                                     </li>
                                     <li>
-                                        <a href="" target="_blank">
+                                        <a href="javascript:void(0)" target="_blank">
                                             <img src="{{ asset('frontend/images/others/Instagram.webp') }}">
                                         </a>
                                     </li>

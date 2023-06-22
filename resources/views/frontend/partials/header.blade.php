@@ -7,12 +7,12 @@
                 </button>
                 <div class="logo-main">
                     <a class="navbar-brand" href="{{ route('front.home') }}">
-                        <img src="{{ asset('frontend/images/logo/logo-small.webp') }}" alt="Logo">
+                        <img src="{{ asset(siteInfo()->logo) }}" alt="Logo">
                     </a>
                 </div>
-                <form class="searchArea my-0 my-lg-0">
+                <form class="searchArea my-0 my-lg-0" action="{{ route('front.product.search') }}">
                     <div class="search-input">
-                        <input class="form-control me-sm-2" type="text" placeholder="Search">
+                        <input class="form-control me-sm-2" type="text" placeholder="Search" name="query">
                         <button class="" type="submit">
                             <i class="fas fa-magnifying-glass"></i>
                         </button>
@@ -31,7 +31,7 @@
                             <i class="fas fa-house"></i>
                         </span>
                         <span class="location-name">
-                            <span>Mohammadpur</span> <span>Dhaka</span>
+                            <span>{{ siteInfo()->address_1 }}</span> <span>{{ siteInfo()->address_2 }}</span>
                         </span>
                         <span class="arrow-down">
                             <i class="fas fa-angle-down"></i>
@@ -50,8 +50,8 @@
                                     <i class="fas fa-check"></i>
                                 </div>
                                 <div class="address-details-container">
-                                    <div class="area-name">Mohammadpur, Dhaka</div>
-                                    <div class="street-address">Null</div>
+                                    <div class="area-name">{{ siteInfo()->address_1 }}, {{ siteInfo()->address_2 }}</div>
+                                    <div class="street-address"></div>
                                 </div>
                             </div>
                             <div class="user-current-location">
@@ -102,7 +102,7 @@
                         <i class="fas fa-user"></i>
                     </div>
                     <div class="user-name">
-                        <p>01310186926</p>
+                        <p>{{ siteInfo()->topbar_phone }}</p>
                     </div>
                     <ul class="user-dropdown">
                         <li><a href="">Your Profile</a></li>
@@ -119,7 +119,7 @@
                     <i class="fas fa-location-arrow"></i>
                 </div>
                 <div class="address ">
-                    Mohammadpur, Dhaka
+                    {{ siteInfo()->address_1 }}, {{ siteInfo()->address_2 }}
                 </div>
                 <div class="icon">
                     <i class="fas fa-angle-right"></i>
@@ -137,8 +137,8 @@
                                 <i class="fas fa-check"></i>
                             </div>
                             <div class="address-details-container">
-                                <div class="area-name">Mohammadpur, Dhaka</div>
-                                <div class="street-address">Null</div>
+                                <div class="area-name">{{ siteInfo()->address_1 }}, {{ siteInfo()->address_2 }}</div>
+                                <div class="street-address"></div>
                             </div>
                         </div>
                         <div class="user-current-location">
@@ -166,19 +166,19 @@
         <div class="stickyCartMobile">
             <button class="btn btn-light rounded-0">
                 <svg version="1.1" id="Calque_1" x="0px" y="0px" style="fill:#9c9c9c;stroke:#b9b9b9;" width="16px" height="24px" viewBox="0 0 100 160.13"><g><polygon points="11.052,154.666 21.987,143.115 35.409,154.666  "></polygon><path d="M83.055,36.599c-0.323-7.997-1.229-15.362-2.72-19.555c-2.273-6.396-5.49-7.737-7.789-7.737   c-6.796,0-13.674,11.599-16.489,25.689l-3.371-0.2l-0.19-0.012l-5.509,1.333c-0.058-9.911-1.01-17.577-2.849-22.747   c-2.273-6.394-5.49-7.737-7.788-7.737c-8.618,0-17.367,18.625-17.788,37.361l-13.79,3.336l0.18,1.731h-0.18v106.605l17.466-17.762   l18.592,17.762V48.06H9.886l42.845-10.764l2.862,0.171c-0.47,2.892-0.74,5.865-0.822,8.843l-8.954,1.75v106.605l48.777-10.655   V38.532l0.073-1.244L83.055,36.599z M36.35,8.124c2.709,0,4.453,3.307,5.441,6.081c1.779,5.01,2.69,12.589,2.711,22.513   l-23.429,5.667C21.663,23.304,30.499,8.124,36.35,8.124z M72.546,11.798c2.709,0,4.454,3.308,5.44,6.081   c1.396,3.926,2.252,10.927,2.571,18.572l-22.035-1.308C61.289,21.508,67.87,11.798,72.546,11.798z M58.062,37.612l22.581,1.34   c0.019,0.762,0.028,1.528,0.039,2.297l-23.404,4.571C57.375,42.986,57.637,40.234,58.062,37.612z M83.165,40.766   c-0.007-0.557-0.01-1.112-0.021-1.665l6.549,0.39L83.165,40.766z"></path></g></svg>
-                <span class="badge bg-danger rounded-circle">2</span>
+                <span class="badge bg-danger rounded-circle">{{ totalCartItems() }}</span>
             </button>
         </div>
         <div class="shopping-cart-sticky">
             <div class="itemCount">
                 <svg version="1.1" id="Calque_1" x="0px" y="0px" style="fill:#FDD670;stroke:#FDD670;" width="16px" height="24px" viewBox="0 0 100 160.13"><g><polygon points="11.052,154.666 21.987,143.115 35.409,154.666  "></polygon><path d="M83.055,36.599c-0.323-7.997-1.229-15.362-2.72-19.555c-2.273-6.396-5.49-7.737-7.789-7.737   c-6.796,0-13.674,11.599-16.489,25.689l-3.371-0.2l-0.19-0.012l-5.509,1.333c-0.058-9.911-1.01-17.577-2.849-22.747   c-2.273-6.394-5.49-7.737-7.788-7.737c-8.618,0-17.367,18.625-17.788,37.361l-13.79,3.336l0.18,1.731h-0.18v106.605l17.466-17.762   l18.592,17.762V48.06H9.886l42.845-10.764l2.862,0.171c-0.47,2.892-0.74,5.865-0.822,8.843l-8.954,1.75v106.605l48.777-10.655   V38.532l0.073-1.244L83.055,36.599z M36.35,8.124c2.709,0,4.453,3.307,5.441,6.081c1.779,5.01,2.69,12.589,2.711,22.513   l-23.429,5.667C21.663,23.304,30.499,8.124,36.35,8.124z M72.546,11.798c2.709,0,4.454,3.308,5.44,6.081   c1.396,3.926,2.252,10.927,2.571,18.572l-22.035-1.308C61.289,21.508,67.87,11.798,72.546,11.798z M58.062,37.612l22.581,1.34   c0.019,0.762,0.028,1.528,0.039,2.297l-23.404,4.571C57.375,42.986,57.637,40.234,58.062,37.612z M83.165,40.766   c-0.007-0.557-0.01-1.112-0.021-1.665l6.549,0.39L83.165,40.766z"></path></g></svg>
                 <p>
-                    <span>0 Items</span>
+                    <span>{{ totalCartItems() }} {{ totalCartItems() > 1 ? 'Items' : 'Item' }}</span>
                 </p>
             </div>
             <div class="total">
                 <span>৳</span>
-                <span class="amount">0,000</span>
+                <span class="amount">{{ cartTotalAmount() }}</span>
             </div>
         </div>
         <div class="shoppingCartWrapper">
@@ -192,7 +192,7 @@
                             <svg version="1.1" id="Calque_1" x="0px" y="0px" style="fill:#FDD670;stroke:#FDD670;" width="21px" height="32px" viewBox="0 0 100 160.13"><g><polygon points="11.052,154.666 21.987,143.115 35.409,154.666  "></polygon><path d="M83.055,36.599c-0.323-7.997-1.229-15.362-2.72-19.555c-2.273-6.396-5.49-7.737-7.789-7.737   c-6.796,0-13.674,11.599-16.489,25.689l-3.371-0.2l-0.19-0.012l-5.509,1.333c-0.058-9.911-1.01-17.577-2.849-22.747   c-2.273-6.394-5.49-7.737-7.788-7.737c-8.618,0-17.367,18.625-17.788,37.361l-13.79,3.336l0.18,1.731h-0.18v106.605l17.466-17.762   l18.592,17.762V48.06H9.886l42.845-10.764l2.862,0.171c-0.47,2.892-0.74,5.865-0.822,8.843l-8.954,1.75v106.605l48.777-10.655   V38.532l0.073-1.244L83.055,36.599z M36.35,8.124c2.709,0,4.453,3.307,5.441,6.081c1.779,5.01,2.69,12.589,2.711,22.513   l-23.429,5.667C21.663,23.304,30.499,8.124,36.35,8.124z M72.546,11.798c2.709,0,4.454,3.308,5.44,6.081   c1.396,3.926,2.252,10.927,2.571,18.572l-22.035-1.308C61.289,21.508,67.87,11.798,72.546,11.798z M58.062,37.612l22.581,1.34   c0.019,0.762,0.028,1.528,0.039,2.297l-23.404,4.571C57.375,42.986,57.637,40.234,58.062,37.612z M83.165,40.766   c-0.007-0.557-0.01-1.112-0.021-1.665l6.549,0.39L83.165,40.766z"></path></g></svg>
                         </div>
                         <div class="itemCount">
-                            <span>1 Items</span>
+                            <span>{{ totalCartItems() }} {{ totalCartItems() > 1 ? 'Items' : 'Item' }}</span>
                         </div>
                         <button class="closeCartButtonTop">
                             Close
@@ -241,43 +241,54 @@
                             <!-- <div class="empty-cart">
                                 <h5>Empty Cart</h5>
                             </div> -->
+                            @forelse(cartItems() as $key => $item)
+                            @php 
+                                $row_total = $item['price'] * $item['quantity'];
+                            @endphp
                             <div class="orderItem">
                                 <div class="quantity">
-                                    <div class="caret caret-up increase" title="Add one more to bag">
+                                    <div data-url="{{ route('front.cart.increase', [$key]) }}" class="caret caret-up increase" title="Add one more to bag">
                                         <svg version="1.1" x="0px" y="0px" viewBox="0 20 100 100"><polygon points="46.34,39.003 46.34,39.003 24.846,60.499 29.007,64.657 50.502,43.163 71.015,63.677 75.175,59.519 50.502,34.844   "></polygon></svg>
                                     </div>
                                     <span class="onHoverCursor quantity-value">
-                                        <span>1</span>
+                                        <span class="current-qty">{{ $item['quantity'] }}</span>
                                     </span>
-                                    <div class="caret caret-down decrease" title="Remove one from bag">
+                                    <div data-url="{{ route('front.cart.decrease', [$key]) }}" class="caret caret-down decrease" title="Remove one from bag">
                                         <svg version="1.1" x="0px" y="0px" viewBox="0 -20 100 100"><polygon points="53.681,60.497 53.681,60.497 75.175,39.001 71.014,34.843 49.519,56.337 29.006,35.823 24.846,39.982   49.519,64.656 "></polygon></svg>
                                     </div>
                                 </div>
                                 <div class="picture">
                                     <div class="productPicture">
-                                        <img src="https://chaldn.com/_mpimage/pran-tomato-sauce-340-gm?src=https%3A%2F%2Feggyolk.chaldal.com%2Fapi%2FPicture%2FRaw%3FpictureId%3D135234&amp;q=best&amp;v=1&amp;m=400&amp;webp=1" size="400" style="background-color:transparent;">
+                                        <img src="{{ asset($item['image']) }}" size="400" style="background-color:transparent;">
                                     </div>
                                 </div>
                                 <div class="name">
-                                    <span>Pran Tomato Sauce</span>
+                                    <span>{{ $item['name'] }}</span>
                                     <div class="subText">
                                         <span>৳ </span>
-                                        <span>100</span>
-                                        <span> / 340 gm</span>
+                                        <span>{{ $item['price'] }}</span>
+                                        <span> / 1 pcs</span>
                                     </div>
                                 </div>
                                 <div class="amount">
                                     <section>
                                         <div class="total">
                                             <span>৳ </span>
-                                            <span>100</span>
+                                            <span>{{ $row_total }}</span>
                                         </div>
                                     </section>
-                                    <div class="remove" title="Remove from bag">
+                                    <div class="remove" data-url="{{ route('front.cart.destroy', [$key]) }}" title="Remove from bag">
                                         <svg version="1.1" x="0px" y="0px" viewBox="0 0 100 100"><rect x="19.49" y="46.963" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 121.571 49.0636)" width="62.267" height="5.495"></rect><rect x="18.575" y="47.876" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 49.062 121.5686)" width="62.268" height="5.495"></rect></svg>
                                     </div>
                                 </div>
                             </div>
+                            @empty
+                            <div align="center">
+                                <strong class="text-center text-danger">
+                                    Your shopping is now empty!
+                                </strong>
+                            </div>
+                            @endforelse
                         </div>
                         <section class="discountCodeContainer expanded notEligible">
                             <div class="main-discount-container">
@@ -313,11 +324,11 @@
                             
                             <div class="shoppingtCartActionButtons">
                                 <button id="placeOrderButton">
-                                    <a href="checkout.html" class="text-light text-decoration-none">
+                                    <a href="{{ route('front.checkout.index') }}" class="text-light text-decoration-none">
                                         <span class="placeOrderText">Place Order</span>
                                         <span class="totalMoneyCount">
                                             <span>৳  </span>
-                                            <span>200</span>
+                                            <span>{{ cartTotalAmount() }}</span>
                                             
                                         </span>
                                     </a>

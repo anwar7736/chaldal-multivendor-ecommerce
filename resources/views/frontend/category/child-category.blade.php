@@ -28,14 +28,15 @@
                                     <nav aria-label="breadcrumb">
                                         <ol class="breadcrumb">
                                                 <li class="breadcrumb-item">
+                                                    
                                                     <a href="{{ route('front.subcategory', [
-                                                            'type'=>'category', 
+                                                            'type'=>'subcategory', 
                                                             'slug'=> $categories[0]->category->slug 
-                                                        ] ) }}">{{ $categories[0]->category->name }}
+                                                        ] ) }}">{{ $categories[0]->category->name ?? ''}}
                                                     </a>
                                                 </li>
                                             <li class="breadcrumb-item active" aria-current="page">
-                                                {{ $categories[0]->subCategory->name }}
+                                                {{ $categories[0]->subCategory->name ?? ''}}
                                             </li>
                                         </ol>
                                     </nav>
@@ -44,7 +45,7 @@
                                     <div class="category-links-wrapper">
                                         @forelse($categories as $key => $subCategory)
                                             <a href="{{ route('front.shop', [
-                                                            'slug'=> $categories[0]->category->slug 
+                                                            'slug'=> $subCategory->slug 
                                                         ] ) }}" class="category">
                                                 <div>
                                                     <div class="imageWrapper">

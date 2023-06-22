@@ -1,5 +1,5 @@
 @extends('frontend.app')
-@section('title', 'Sub Category List')
+@section('title', 'Shop Product List')
 @push('css')
     <link rel="stylesheet" href="{{ asset('frontend/silck/slick.css') }}">
     <link rel="stylesheet" href="{{ asset('frontend/silck/slick-theme.css') }}">
@@ -15,7 +15,7 @@
                         <div class="normalBanner">
                             <div class="categoryTopBanner">
                                 <div class="fade-carousel-container">
-                                    <a href="">
+                                    <a href="javascript:void(0)">
                                         <img src="{{ asset('frontend/images/banners/_mpimage.webp') }}" style="background-color:transparent;">
                                     </a>
                                 </div>
@@ -26,11 +26,13 @@
                                 <nav aria-label="breadcrumb">
                                     <ol class="breadcrumb">
                                         <li class="breadcrumb-item active" aria-current="page">
-                                            @if($products[0]->category)
-                                                {{ $products[0]->category->name }}                                        
-                                            @elseif($products[0]->subCategory)
-                                            > {{ $products[0]->subCategory->name }}                                            
-                                            @elseif($products[0]->childCategory)
+                                            @if(!empty($products[0]->category))
+                                                {{ $products[0]->category->name }}  
+                                            @endif                                      
+                                            @if(!empty($products[0]->subCategory))
+                                            > {{ $products[0]->subCategory->name }} 
+                                            @endif                                           
+                                            @if(!empty($products[0]->childCategory))
                                             > {{ $products[0]->childCategory->name }}
                                             @endif
                                         </li>
@@ -39,9 +41,13 @@
                             </div>
                             <div class="categorySection miscCategorySection onlyMiscCategorySection">
                                 <div class="productPane">
-                                    @foreach($products as $key => $product)
+                                    @forelse($products as $key => $product)
                                         @include('frontend.product.single-product', ['product'=>$product] )
-                                    @endforeach
+                                    @empty
+                                    <div align="center">
+                                        <strong class="text-center text-danger">No products are available</strong>
+                                    </div>
+                                    @endforelse
                                 </div>
                             </div>
                         </section>
@@ -55,6 +61,3 @@
 
 @endsection
 
-@push('js')
-    <script src="{{ asset('frontend/silck/slick.min.js') }}"></script>
-@endpush

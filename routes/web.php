@@ -95,6 +95,11 @@ use App\Http\Controllers\WEB\Seller\Auth\SellerForgotPasswordController;
 
 //Frontend 
 use App\Http\Controllers\WEB\Frontend\HomeController as FrontHomeController;
+use App\Http\Controllers\WEB\Frontend\ProductController as FrontProductController;
+use App\Http\Controllers\WEB\Frontend\CartController as FrontCartController;
+use App\Http\Controllers\WEB\Frontend\CheckoutController as FrontCheckoutController;
+
+
 
 Route::group(['as'=> 'user.', 'prefix' => 'user'],function (){
 
@@ -600,14 +605,38 @@ Route::group(['as'=> 'admin.', 'prefix' => 'admin'],function (){
 
 
 Route::group(['as' => 'front.'], function(){
-
     Route::controller(FrontHomeController::class)->group(function(){
-
         Route::get('/', 'index')->name('home');
         Route::get('/category/{type}/{slug}', 'subCategoriesByCategory')->name('subcategory');
         Route::get('/shop/{slug?}', 'shop')->name('shop');
+    });    
+    
+    Route::controller(FrontProductController::class)->group(function(){
+        Route::group(['as'=> 'product.'], function(){
+            Route::get('/search-product', 'searchProduct')->name('search');
+            Route::get('/product/{id}', 'show')->name('show');
+        });
+    });    
+    
+    Route::controller(FrontCartController::class)->group(function(){
+        Route::group(['as'=> 'cart.'], function(){
+            Route::get('cart', 'index')->name('index');
+            Route::post('cart', 'store')->name('store');
+            Route::get('cart-qty-increase/{id}', 'increaseQty')->name('increase');
+            Route::get('cart-qty-decrease/{id}', 'decreaseQty')->name('decrease');
+            Route::get('cart/{id}', 'destroy')->name('destroy');
+        });
 
+
+    });    
+    
+    Route::controller(FrontCheckoutController::class)->group(function(){
+        Route::group(['as'=> 'checkout.'], function(){
+            Route::get('checkout', 'index')->name('index');
+        });
     });
+
+    
 
 });
 
