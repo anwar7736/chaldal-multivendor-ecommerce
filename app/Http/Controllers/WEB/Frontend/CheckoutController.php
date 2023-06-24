@@ -4,6 +4,8 @@ namespace App\Http\Controllers\WEB\Frontend;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Order;
+use App\Models\OrderProduct;
 
 class CheckoutController extends Controller
 {
@@ -14,7 +16,8 @@ class CheckoutController extends Controller
      */
     public function index()
     {
-        return view('frontend.cart.checkout');
+        $cart = session()->get('cart', []);
+        return view('frontend.cart.checkout', compact('cart'));
     }
 
     /**
@@ -35,7 +38,10 @@ class CheckoutController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cart = session()->get('cart', []);
+
+        
+
     }
 
     /**

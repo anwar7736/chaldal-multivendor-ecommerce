@@ -301,4 +301,54 @@ rangeInput.each(function () {
     }
   });
 });
-})
+});
+
+
+$(document).ready(function(){
+  $(document).on('submit', 'form#ajaxForm', function(e){
+    e.preventDefault();
+    $('span.error').text('');
+    let url = $(this).attr('action');
+    let method = $(this).attr('method');
+    let data = new FormData(this);
+    $.ajax({
+      method,
+      url,
+      data,
+      cache:false,
+      processData: false,
+      contentType: false,
+      success: function(res)
+      {
+        if(res.status)
+        {
+           toastr.success(res.msg);
+           if(res.url)
+           {
+              document.location.href = res.url;
+           }
+           else{
+              window.location.reload();
+           }
+        }
+        else{
+          toastr.error(res.msg);
+        }
+      },
+      error: function(response)
+      {
+        $.each(response.responseJSON.errors, function(name, error){
+          $(document).find('[name='+name+']').closest('div').after('<span class="error text-danger">'+error+'</span>');
+          toastr.error(error);
+        });
+      }
+    });
+    
+  });
+
+  $(document).on('change', 'input[type="file"]', function(e){
+    let url = e.target.files[0];
+    let tempURL = URL.createObjectURL(url);
+    $(document).find('img#previewImg').attr('src', tempURL);
+  });
+});

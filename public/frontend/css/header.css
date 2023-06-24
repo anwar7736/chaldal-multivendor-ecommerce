@@ -374,7 +374,7 @@
     -webkit-transition: all 100ms ease-in-out;
     transition: all 100ms ease-in-out;
     font-weight: bold;
-    display: none;
+    /* display: none; */
 }
 .header-main .navbar .loginArea .user-icon{
         float: left;

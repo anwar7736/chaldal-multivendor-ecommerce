@@ -94,10 +94,12 @@ use App\Http\Controllers\WEB\Seller\Auth\SellerForgotPasswordController;
 
 
 //Frontend 
+use App\Http\Controllers\WEB\Frontend\Auth\AuthController as FrontAuthController;
 use App\Http\Controllers\WEB\Frontend\HomeController as FrontHomeController;
 use App\Http\Controllers\WEB\Frontend\ProductController as FrontProductController;
 use App\Http\Controllers\WEB\Frontend\CartController as FrontCartController;
 use App\Http\Controllers\WEB\Frontend\CheckoutController as FrontCheckoutController;
+use App\Http\Controllers\WEB\Frontend\OrderController as FrontOrderController;
 
 
 
@@ -636,6 +638,17 @@ Route::group(['as' => 'front.'], function(){
         });
     });
 
+    Route::resource('order', FrontOrderController::class);
+
+    Route::get('order-print/{id}', [FrontOrderController::class, 'print'])->name('order.print');
+
+    Route::controller(FrontAuthController::class)->group(function(){
+        Route::post('login', 'login')->name('login');
+        Route::get('logout', 'logout')->name('logout');
+        Route::post('register', 'register')->name('register');
+        Route::post('change-password', 'changePassword')->name('pasword.change');
+        Route::post('profile-update', 'updateProfile')->name('profile.update');
+    });
     
 
 });
