@@ -17,7 +17,7 @@ class OrderController extends Controller
     }
 
     public function index(){
-        $orders = Order::with('user')->orderBy('id','desc')->get();
+        $orders = Order::with('user')->orderBy('id','desc')->active()->get();
         $title = trans('admin_validation.All Orders');
         $setting = Setting::first();
 
@@ -26,7 +26,7 @@ class OrderController extends Controller
     }
 
     public function pendingOrder(){
-        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',0)->get();
+        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',0)->active()->get();
         $title = trans('admin_validation.Pending Orders');
         $setting = Setting::first();
 
@@ -34,7 +34,7 @@ class OrderController extends Controller
     }
 
     public function pregressOrder(){
-        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',1)->get();
+        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',1)->active()->get();
         $title = trans('admin_validation.Pregress Orders');
         $setting = Setting::first();
 
@@ -42,7 +42,7 @@ class OrderController extends Controller
     }
 
     public function deliveredOrder(){
-        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',2)->get();
+        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',2)->active()->get();
         $title = trans('admin_validation.Delivered Orders');
         $setting = Setting::first();
 
@@ -50,28 +50,28 @@ class OrderController extends Controller
     }
 
     public function completedOrder(){
-        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',3)->get();
+        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',3)->active()->get();
         $title = trans('admin_validation.Completed Orders');
         $setting = Setting::first();
         return view('admin.order', compact('orders','title','setting'));
     }
 
     public function declinedOrder(){
-        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',4)->get();
+        $orders = Order::with('user')->orderBy('id','desc')->where('order_status',4)->active()->get();
         $title = trans('admin_validation.Declined Orders');
         $setting = Setting::first();
         return view('admin.order', compact('orders','title','setting'));
     }
 
     public function cashOnDelivery(){
-        $orders = Order::with('user')->orderBy('id','desc')->where('cash_on_delivery',1)->get();
+        $orders = Order::with('user')->orderBy('id','desc')->where('cash_on_delivery',1)->active()->get();
         $title = trans('admin_validation.Cash On Delivery');
         $setting = Setting::first();
         return view('admin.order', compact('orders','title','setting'));
     }
 
     public function show($id){
-        $order = Order::with('user','orderProducts.orderProductVariants','orderAddress')->find($id);
+        $order = Order::with('user','orderProducts.orderProductVariants','orderAddress')->active()->find($id);
         $setting = Setting::first();
         return view('admin.show_order',compact('order','setting'));
     }

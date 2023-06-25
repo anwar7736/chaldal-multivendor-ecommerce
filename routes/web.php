@@ -632,11 +632,14 @@ Route::group(['as' => 'front.'], function(){
 
     });    
     
-    Route::controller(FrontCheckoutController::class)->group(function(){
-        Route::group(['as'=> 'checkout.'], function(){
-            Route::get('checkout', 'index')->name('index');
-        });
-    });
+    // Route::controller(FrontCheckoutController::class)->group(function(){
+    //     Route::group(['as'=> 'checkout.'], function(){
+    //         Route::get('checkout', 'index')->name('index');
+    //     });
+    // });
+
+
+    Route::resource('checkout', FrontCheckoutController::class);
 
     Route::resource('order', FrontOrderController::class);
 
@@ -650,6 +653,10 @@ Route::group(['as' => 'front.'], function(){
         Route::post('profile-update', 'updateProfile')->name('profile.update');
     });
     
+Route::prefix('front')->group(function(){
+    Route::get('state-by-country/{id}', [FrontCheckoutController::class, 'stateByCountry'])->name('state-by-country');
+    Route::get('city-by-state/{id}', [FrontCheckoutController::class, 'cityByState'])->name('city-by-state');
+});
 
 });
 

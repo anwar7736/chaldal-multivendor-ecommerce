@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 22, 2023 at 03:05 PM
+-- Generation Time: Jun 24, 2023 at 09:56 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -3428,7 +3428,7 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `remember_token`, `forget_password_token`, `status`, `provider_id`, `provider`, `provider_avatar`, `image`, `phone`, `country_id`, `state_id`, `city_id`, `zip_code`, `address`, `is_vendor`, `verify_token`, `email_verified`, `agree_policy`, `created_at`, `updated_at`) VALUES
 (4, 'Autumn Decker Dean', 'seller7@gmail.com', NULL, '$2y$10$B3aOUPcMKFQUKR9af/taSei07iAEaiT2TaaWaofuM4cMuspsIffH.', 'Ou5C4kwC0iMZ7K2nAP7m2mZulHnXvIhz5j3VAaWNxboVpCbwFcUVPpPP8DXX', NULL, 1, NULL, NULL, NULL, NULL, '985-458-1254', 0, 0, 0, NULL, NULL, 0, NULL, 1, 1, '2022-09-21 05:33:41', '2022-09-21 05:39:16'),
-(5, 'Jayden Carter', 'user5@gmail.com', NULL, '$2y$10$fLfrcsXAEO4Ppl.RzHEj2ObbdSBKKgy8XC3kPDIjE/Fqp.yRnCqea', NULL, NULL, 1, NULL, NULL, NULL, NULL, '236-451-7458', 0, 0, 0, NULL, 'qww', 0, NULL, 1, 1, '2022-09-21 05:40:21', '2022-09-22 04:19:00'),
+(5, 'Jayden Carter', 'user5@gmail.com', NULL, '$2y$10$piRzUCex6yl5eLJGAtirw.u7rokHp/5EI/2Exf1onwA5crmHkIYWq', NULL, NULL, 1, NULL, NULL, NULL, NULL, '236-451-7458', 0, 0, 0, NULL, 'qww', 0, NULL, 1, 1, '2022-09-21 05:40:21', '2023-06-24 07:25:57'),
 (6, 'David Leo', 'user3@gmail.com', NULL, '$2y$10$97EjXmtnALzk8asIK7c92exVWTjNqiVZY0i63WLgTpiltIxcej66a', NULL, NULL, 1, NULL, NULL, NULL, 'uploads/custom-images/nayeem-2022-11-13-10-12-58-9722.jpg', '874-512-4589', 0, 0, 0, NULL, 'catsle', 0, NULL, 1, 1, '2022-09-21 06:48:34', '2022-11-13 15:12:58'),
 (7, 'John Doe', 'user@gmail.com', NULL, '$2y$10$slQDXnVvhpogMQB3OyqAeeIEBYNCS7pwN8rVHlYsSDv/nA3tIhEDu', 'Q8ZIbDCY9pwnZCVAIUA3c0YP8B6g4bOfxP9cZprlVxQ94H2rX9Z3Ex8Bpts0', '351184', 1, NULL, NULL, NULL, 'uploads/custom-images/abdullah-mamunn-2023-03-23-12-54-59-5792.jpg', '12345690', 2, 4, 8, NULL, 'Mirpur 11', 0, NULL, 1, 1, '2022-09-21 07:08:27', '2023-03-26 09:12:48'),
 (8, 'Harding Rosa', 'seller5@gmail.com', NULL, '$2y$10$.Z7BHjmwrhswRQA1/SDRUubKwZDTtFU8GK9ZGbkxprsMCDWBycSXC', NULL, NULL, 1, NULL, NULL, NULL, NULL, '215-365-6452', 0, 0, 0, NULL, NULL, 0, NULL, 1, 1, '2022-09-21 07:11:54', '2022-09-21 07:12:14'),
@@ -3455,7 +3455,8 @@ INSERT INTO `users` (`id`, `name`, `email`, `email_verified_at`, `password`, `re
 (53, 'test test', 'dojot15193@mitigado.com', NULL, '$2y$10$GgQ/2YwwsitfSufslFc7Ye28Z3ftm9d7a5cX7JmfHCb2oCyB7wvFS', NULL, NULL, 0, NULL, NULL, NULL, NULL, '+8801704782586', 0, 0, 0, NULL, NULL, 0, '598893', 0, 1, '2023-04-04 03:54:19', '2023-04-04 03:54:19'),
 (54, 'test test', 'pagateh183@mitigado.com', NULL, '$2y$10$jiqlYOvu.1lF0THCdicLk.6ymxlpR2egt1uUw3cGyEh.UXxNHx4Pa', NULL, NULL, 1, NULL, NULL, NULL, NULL, '+8801885208429', 0, 0, 0, NULL, NULL, 0, NULL, 1, 1, '2023-04-04 04:27:47', '2023-04-04 04:32:24'),
 (55, 'test2 test2', 'rifaman890@jthoven.com', NULL, '$2y$10$Zz/NP2j7wEH4GXir3EE1N.6XfCWym8W.Gnqlnm/BGF4443Fs0XXKa', NULL, NULL, 0, NULL, NULL, NULL, NULL, '+8801777777777', 0, 0, 0, NULL, NULL, 0, '348401', 0, 1, '2023-04-04 04:39:20', '2023-04-04 04:39:20'),
-(56, 'test3 test3', 'cahoyec843@jthoven.com', NULL, '$2y$10$EjKjbh4bwrUT46mD85wDJuu5f7PDr.Kn3IH0FQZ2SDhkwpSwi/fQa', NULL, NULL, 1, NULL, NULL, NULL, NULL, '+8801888888888', 0, 0, 0, NULL, NULL, 0, NULL, 1, 1, '2023-04-04 04:41:36', '2023-04-04 04:41:55');
+(56, 'test3 test3', 'cahoyec843@jthoven.com', NULL, '$2y$10$EjKjbh4bwrUT46mD85wDJuu5f7PDr.Kn3IH0FQZ2SDhkwpSwi/fQa', NULL, NULL, 1, NULL, NULL, NULL, NULL, '+8801888888888', 0, 0, 0, NULL, NULL, 0, NULL, 1, 1, '2023-04-04 04:41:36', '2023-04-04 04:41:55'),
+(58, 'Md Anwar Hossain', 'anwar@gmail.com', NULL, '$2y$10$i2aFaKcY5.aEJLGTjgzQbuRovMVVabWpNu.VbdZRlnpoQg8jBft8m', NULL, NULL, 0, NULL, NULL, NULL, 'uploads/custom-images/md-anwar-hossain-2023-06-24-01-53-53-2880.webp', '01794030592', 0, 0, 0, NULL, 'Mohammadpur, Dhaka-1207', 0, NULL, 0, 0, '2023-06-24 06:58:08', '2023-06-24 07:53:54');
 
 -- --------------------------------------------------------
 
@@ -4718,7 +4719,7 @@ ALTER TABLE `twilio_sms`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `vendors`

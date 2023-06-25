@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class OrderProduct extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
 
     public function seller(){
         return $this->belongsTo(Vendor::class,'seller_id');
@@ -15,6 +16,10 @@ class OrderProduct extends Model
 
     public function orderProductVariants(){
         return $this->hasMany(OrderProductVariant::class);
+    }
+
+    public function product(){
+        return $this->belongsTo(Product::class);
     }
 
     public function order(){

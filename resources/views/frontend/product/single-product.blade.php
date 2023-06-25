@@ -27,8 +27,8 @@
                     <div class="price" data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.4.1"><span data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.4.1.0">৳ </span><span data-reactid=".1n7kkwy0qp6.b.2.0.0.0.0.2.5.1.0:$14822_Grocery.0.2.4.1.1">{{ $product->price }}</span></div>
                 @endif
             </div>
-            <div class="overlay text add-to-cart" data-id="{{ $product->id }}" data-url="{{ route('front.cart.store') }}">
-                <p class="addText">Add to Shopping Bag</p>
+            <div class="overlay text">
+                <p class="addText add-to-cart" data-id="{{ $product->id }}" data-url="{{ route('front.cart.store') }}">Add to Shopping Bag</p>
                 <span>
                     <a href="{{ route('front.product.show', [ $product->id ] ) }}" class="btnShowDetails">
                         <span>Details</span>

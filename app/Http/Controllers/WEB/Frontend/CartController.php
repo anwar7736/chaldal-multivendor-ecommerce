@@ -5,7 +5,7 @@ namespace App\Http\Controllers\WEB\Frontend;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Product;
-
+use Auth;
 class CartController extends Controller
 {
     /**
@@ -40,8 +40,8 @@ class CartController extends Controller
     {
         $item = Product::findOrFail($request->id);
         $cart = session()->get('cart', []);
-
-        if($item->qty <= 0 || $item->qty < $request->quantity)
+        $stock = $item->qty - $item->sold_qty;
+        if($stock <= 0 || $stock < $request->quantity)
         {
             return response()->json([
                 'status' => false,
@@ -51,9 +51,10 @@ class CartController extends Controller
 
         if(isset($cart[$request->id]))
         {
-            if($cart[$request->id]['quantity'] < $item->qty)
+            if($cart[$request->id]['quantity'] < $stock)
             {
                 $cart[$request->id]['quantity'] += 1;
+                $cart[$request->id]['variation'] = $request->variation;
             }
             else {
                 return response()->json([
@@ -70,7 +71,10 @@ class CartController extends Controller
                 'name' => $item ->name,
                 'image' => $item ->thumb_image,
                 'quantity' => $request->quantity,
-                'price' => $price
+                'price' => $price,
+                'coupon_name' => '',
+                'offer_type' => 0,
+                'variation' => $request->variation ?? '',
             ];
         }
 
@@ -80,7 +84,8 @@ class CartController extends Controller
         return response()->json([
             'status' => true,
             'totalItems' => totalCartItems(),
-            'msg' => 'Item has been added!'
+            'url' => Auth::id() ? route('front.checkout.index') : '',
+            'msg' => 'Item has been added!',
             ], 200);
     }
 

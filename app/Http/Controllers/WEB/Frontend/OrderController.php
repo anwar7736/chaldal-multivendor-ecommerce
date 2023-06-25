@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Order;
 use App\Models\OrderProduct;
-
+use Auth;
 class OrderController extends Controller
 {
     public function index()
@@ -20,7 +20,11 @@ class OrderController extends Controller
     {
         $order = Order::with('user', 'orderProducts')->findOrFail($id);
 
-        return view('frontend.order.show', compact('order'));
+        $view = view('frontend.order.show', compact('order'))->render();
+        return response()->json([
+            'status' => true,
+            'html' => $view,
+        ]);
     }    
     
     public function print($id)

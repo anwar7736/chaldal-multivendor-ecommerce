@@ -59,10 +59,12 @@ function cartTotalAmount()
 {
     $cart = cartItems();
     $total = 0;
+    $total_qty = 0;
     foreach($cart as $key => $item)
     {
         $total += ($item['price'] * $item['quantity']);
+        $total_qty += $item['quantity'];
     }
 
-    return $total;
+    return ['total_qty' => $total_qty, 'total'=> $total];
 }

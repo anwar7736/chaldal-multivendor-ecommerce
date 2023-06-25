@@ -53,16 +53,30 @@
                                 </div>
                                 @endif
                             </div>
+                            @if($product->variantItems->count() > 0)
+                            <div>
+                                <strong>Choose Size</strong><br>
+                                @foreach($product->variantItems as $key => $v)
+                                <label for="v_{{$key}}">
+                                    <input type="radio" value="{{ $v->id }}" name="variation" class="variation" id="v_{{$key}}"> {{ $v->name }}
+                                </label>
+                                @endforeach
+                            </div>
+                            @else
+                            <input type="hidden" class="variation" name="variation" value="">
+                            @endif
+                            <input type="hidden" class="isVariation" value="{{ $product->variantItems->count() }}">
                             <section>
                                 <div class="quantityEditor">
                                     <button class="removeButton outer">–</button>
                                     <div class="QuantityTextContainer">
                                         <div class="quantity"><span>1</span></div>
                                         <div class="inBag">in bag</div>
+                                        <input type="hidden" name="qty" value="1">
                                     </div>
                                     <button class="addButton outer">+</button>
                                 </div>
-                                <button id="buyNowButton">Buy Now</button>
+                                <button id="buyNowButton" data-url="{{ route('front.cart.store') }}" data-id="{{ $product->id }}">Buy Now</button>
                             </section>
                         </div>
                         <div class="actionButtons">

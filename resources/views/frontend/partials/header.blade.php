@@ -109,7 +109,7 @@
                         </div>
                         <ul class="user-dropdown">
                             <li><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#profile">Your Profile</a></li>
-                            <li><a href="">Your Orders</a></li>
+                            <li><a href="{{ route('front.order.index') }}">Your Orders</a></li>
                             <li><a href="">Payment History</a></li>
                             <li><a href="">Referral Program</a></li>
                             <li><a href="javascript:void(0)" data-bs-toggle="modal" data-bs-target="#changePassword">Change Password</a></li>
@@ -183,7 +183,7 @@
             </div>
             <div class="total">
                 <span>৳</span>
-                <span class="amount">{{ cartTotalAmount() }}</span>
+                <span class="amount">{{ cartTotalAmount()['total'] }}</span>
             </div>
         </div>
         <div class="shoppingCartWrapper">
@@ -329,11 +329,11 @@
                             
                             <div class="shoppingtCartActionButtons">
                                 <button id="placeOrderButton">
-                                    <a href="{{ route('front.checkout.index') }}" class="text-light text-decoration-none">
+                                    <a id="placeOrder" data-auth="{{ Auth::id() }}" href="{{ route('front.checkout.index') }}" class="text-light text-decoration-none">
                                         <span class="placeOrderText">Place Order</span>
                                         <span class="totalMoneyCount">
                                             <span>৳  </span>
-                                            <span>{{ cartTotalAmount() }}</span>
+                                            <span>{{ cartTotalAmount()['total'] }}</span>
                                             
                                         </span>
                                     </a>
